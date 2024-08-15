@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <hr className="w-[410px] lg:w-[1057px] border-[#E6E6E6] border-[1px]" />
+      <hr className="w-[390px] lg:w-[1057px] border-[#E6E6E6] border-[1px]" />
 
       <div className="footer-links-wrapper flex items-center justify-center w-[414px] h-[1071px] lg:w-[1440px] lg:h-[272px]">
 
