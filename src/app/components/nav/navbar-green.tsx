@@ -8,7 +8,7 @@ import twitterIcon from "/src/assets/images/twitter-icon.svg";
 
 export default function NavbarGreen() {
   return (
-    <nav className="navbar-dark-green sticky top-0 bg-[#23856D] hidden lg:flex items-center justify-between h-[58px] w-[414px] lg:max-w-[1439px] lg:min-w-[100%] px-[20px]">
+    <nav className="navbar-dark-green sticky top-0 bg-[#23856D] hidden lg:flex lg:items-center lg:justify-between h-[58px] w-[414px] lg:max-w-[1440px] lg:min-w-[100%] px-[20px]">
       <div className="flex items-center justify-start w-[415px] h-[46px] gap-[15px]">
         <div className="flex w-[145px] h-[44px] p-[10px] gap-[5px] text-white">
           <Image src={phoneIcon} alt="phoneIcon" />

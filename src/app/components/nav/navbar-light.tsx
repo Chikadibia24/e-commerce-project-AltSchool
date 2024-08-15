@@ -13,9 +13,9 @@ export default function NavbarLight() {
   return (
     <nav
       className="navbar-light flex items-center
-    justify-around lg:justify-between h-[58px] lg:max-w-[1437px] min-w-[414px] lg:min-w-[98%] pl-[15px] bg-[blue]"
+    justify-around lg:justify-between h-[58px] lg:max-w-[1437px] min-w-[414px] lg:min-w-[98%] pl-[15px]"
     >
-      <div className="logo-container w-[187px] h-[58px] flex items-center bg-[green]">
+      <div className="logo-container w-[187px] h-[58px] flex items-center">
         <h3 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
           Bandage
         </h3>

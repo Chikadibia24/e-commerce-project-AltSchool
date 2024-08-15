@@ -22,9 +22,9 @@
 } */
 
 body {
+  /* min-width: 414px; */
   width: 100%;
-  /* max-width: 1440px;
-  min-width: 414px; */
+  /* min-width: 414px; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@ body {
   padding: 0;
   /* border: 0;
   margin: 0; */
-  background-color: rgb(92, 157, 183);
+  /* background-color: rgb(92, 157, 183); */
   /* border: 10px solid black; */
 }
 

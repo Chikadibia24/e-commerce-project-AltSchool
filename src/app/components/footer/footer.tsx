@@ -7,9 +7,9 @@ import twitterIcon from "/src/assets/images/twitter-icon-footer.svg";
 
 export default function Footer() {
   return (
-    <footer className="footer flex flex-col items-center lg:min-w-[1440px] w-[414px] h-[1342px] lg:w-[100%] lg:h-[488px] bg-[green]">
+    <footer className="footer flex flex-col items-center lg:max-w-[1440px] w-[414px] h-[1342px] lg:min-w-[100%] lg:h-[488px]">
 
-      <div className="bandage-main-wrapper flex items-center lg:justify-center w-[321px] h-[173px] lg:w-[1440px] lg:h-[142px]">
+      <div className="bandage-main-wrapper flex items-center lg:justify-center w-[321px] h-[173px] lg:max-w-[1440px] lg:min-w-[100%] lg:h-[142px]">
 
         <div className="bandage-sub-wrapper flex flex-col lg:items-center justify-between lg:flex-row w-[243px] h-[93px] lg:w-[1050px] lg:h-[138px] py-[40px]">
           <div className="w-[236px] h-[58px]">

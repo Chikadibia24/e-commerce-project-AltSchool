@@ -2,7 +2,7 @@ import BlogCard from "./blog-card";
 
 export default function Blog() {
   return (
-    <section className="blog-section w-[414px] lg:w-[1440px] flex justify-center">
+    <section className="blog-section w-[414px] lg:max-w-[1440px] flex justify-center">
       {/* Wrapper Main */}
       <div className="wrapper-main w-[414px] h-[2252px] lg:w-[1120px] lg:h-[900px] flex flex-col justify-center items-center gap-[80px]">
         {/* Wrapper Sub Main - 1 */}

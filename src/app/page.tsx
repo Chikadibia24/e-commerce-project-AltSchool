@@ -7,7 +7,7 @@ import Testimonials from "./components/testimonials/testimonials";
 
 export default function Home() {
   return (
-    <main className="w-[414px] lg:max-w-[1440px] lg:min-w-[100%] flex flex-col items-center gap-[10px] bg-black">
+    <main className="w-[414px] lg:max-w-[1440px] lg:min-w-[100%] flex flex-col items-center gap-[10px]">
 
       <HeroSection />
       <Products/>

@@ -15,7 +15,7 @@ import ProductCardTenImage from "/src/assets/images/product-card-10-image.svg";
 
 export default function Products() {
   return (
-    <section className="products-section w-[414px] lg:w-[1440px] flex justify-center items-center">
+    <section className="products-section w-[414px] lg:max-w-[1440px] lg:min-w-[100%] flex justify-center items-center">
       {/* Main Wrapper */}
       <div className="main-wrapper w-[343px] lg:w-[1124px] h-[3168px] lg:h-[1241px] flex flex-col items-center justify-center gap-[30px] py-[80px]">
         {/* Sub Wrapper - 1 */}

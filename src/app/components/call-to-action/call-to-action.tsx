@@ -7,7 +7,7 @@ export default function CallToAction() {
       
       bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723673837/e-commerce-project-AltSchool/mobile-cta-background_ie8hox.svg')]
 
-     lg:bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723403888/e-commerce-project-AltSchool/cta-background_nk5flw.png')] w-[414px] lg:w-[1440px] flex items-center justify-center"
+     lg:bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723403888/e-commerce-project-AltSchool/cta-background_nk5flw.png')] w-[414px] lg:max-w-[1440px] lg:min-w-[100%] flex items-center justify-center"
     >
       <div className="w-[358px] h-[712px] lg:w-[1050px] lg:h-[640px] flex items-center justify-center pt-[160px] pb-[112px]">
         <div className="w-[358px] h-[488px] lg:w-[571px] lg:h-[368px] flex items-center flex-col gap-[30px]">

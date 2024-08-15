@@ -2,7 +2,7 @@
 
 export default function HeroSection() {
   return (
-    <section className="hero-section w-[414px] lg:w-[1440px] flex justify-center bg-gray-950">
+    <section className="hero-section w-[414px] lg:max-w-[1440px] lg:min-w-[100%] flex justify-center">
       <div className="parent-container w-[333px] h-[1245px] lg:w-[1146px] lg:h-[776px] flex items-center justify-center py-[80px]">
         <div className="parent-sub-container w-[333px] h-[1245px] lg:w-[1146px] lg:h-[616px] flex flex-col lg:flex-row lg:items-center gap-[15px]">
           {/*Card-1*/}
@@ -13,7 +13,7 @@ export default function HeroSection() {
 
           lg:bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723493034/e-commerce-project-AltSchool/hero-section-card-bg-1_pmzbeq.svg')]"
           >
-            <div className="w-[452px] h-[156px] flex flex-col gap-[5px] p-[24px]">
+            <div className="w-[332px] lg:w-[452px] h-[156px] flex flex-col gap-[5px] p-[24px]">
               <h6 className="text-[14px] text-[#2DC071] leading-[24px] font-bold">
                 5 Items
               </h6>
@@ -38,7 +38,7 @@ export default function HeroSection() {
             
             lg:bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723494506/e-commerce-project-AltSchool/hero-section-card-bg-2_a7sohr.svg')]"
             >
-              <div className="w-[680px] h-[138px] flex flex-col gap-[5px] p-[24px]">
+              <div className="w-[332px] lg:w-[680px] h-[138px] flex flex-col gap-[5px] p-[24px]">
                 <h6 className="text-[14px] text-[#2DC071] leading-[24px] font-bold">
                   5 Items
                 </h6>
@@ -54,7 +54,7 @@ export default function HeroSection() {
             </div>
 
             {/*Card-3-4-container*/}
-            <div className="card-3-4-container w-[680px] lg:h-[300px] flex flex-col lg:flex-row gap-[15px]">
+            <div className="card-3-4-container w-[332px] lg:w-[680px] lg:h-[300px] flex flex-col lg:flex-row gap-[15px]">
               {/*Card-3*/}
               <div
                 className="card-3 w-[332px] h-[300px] 

@@ -38,9 +38,9 @@ export default function Features() {
 
 
   return (
-    <section className="features-section w-[414px] lg:w-[1440px] flex justify-center bg-slate-500">
+    <section className="features-section w-[414px] lg:max-w-[1440px] lg:min-w-[100%] flex justify-center bg-slate-950">
       {/* Main wrapper */}
-      <div className="main-wrapper w-[414px] h-[1204px] lg:w-[1050px] lg:h-[560px] flex flex-col items-center justify-center gap-[30px] py-[20px] bg-slate-950">
+      <div className="main-wrapper w-[414px] h-[1204px] lg:w-[1050px] lg:h-[560px] flex flex-col items-center justify-center gap-[30px] py-[20px]">
         {/* Sub wrapper 1 */}
         <div className="sub-wrapper-1 w-[246px] h-[122px] lg:w-[692px] lg:h-[102px] flex flex-col items-center gap-[10px]">
           <h2 className="text-[20px] text-[#737373] leading-[30px] font-bold text-center">
