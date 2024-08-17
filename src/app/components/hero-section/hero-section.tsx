@@ -2,7 +2,7 @@
 
 export default function HeroSection() {
   return (
-    <section className="hero-section w-[414px] lg:max-w-[1440px] lg:min-w-[100%] flex justify-center">
+    <section className="hero-section w-[100%] flex justify-center">
       <div className="parent-container w-[333px] h-[1245px] lg:w-[1146px] lg:h-[776px] flex items-center justify-center py-[80px]">
         <div className="parent-sub-container w-[333px] h-[1245px] lg:w-[1146px] lg:h-[616px] flex flex-col lg:flex-row lg:items-center gap-[15px]">
           {/*Card-1*/}

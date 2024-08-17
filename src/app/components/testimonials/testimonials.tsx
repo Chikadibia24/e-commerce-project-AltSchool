@@ -15,7 +15,7 @@ import testimonialImage9 from "/src/assets/images/testimonial-image-9.svg";
 
 export default function Testimonials() {
   return (
-    <section className="testimonial-section w-[414px] lg:max-w-[1440px] lg:min-w-[100%] flex items-start justify-center">
+    <section className="testimonial-section w-[100%] flex items-start justify-center">
       <div className="main-wrapper w-[370px] h-[911px] lg:w-[1128px] lg:h-[600px] px-[38px] flex flex-col justify-center lg:flex-row items-center lg:justify-between">
         <div className="review-wrapper w-[351px] h-[444px] lg:w-[438px] lg:h-[388px] flex flex-col items-center gap-[28px]">
           <div className="w-[181px] h-[64px] lg:w-[287px] lg:h-[32px]">

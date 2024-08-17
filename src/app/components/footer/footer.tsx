@@ -7,9 +7,9 @@ import twitterIcon from "/src/assets/images/twitter-icon-footer.svg";
 
 export default function Footer() {
   return (
-    <footer className="footer flex flex-col items-center lg:max-w-[1440px] w-[414px] h-[1342px] lg:min-w-[100%] lg:h-[488px]">
+    <footer className="footer flex flex-col items-center h-[1342px] w-[100%] lg:h-[488px]">
 
-      <div className="bandage-main-wrapper flex items-center lg:justify-center w-[321px] h-[173px] lg:max-w-[1440px] lg:min-w-[100%] lg:h-[142px]">
+      <div className="bandage-main-wrapper flex items-center lg:justify-center w-[321px] h-[173px] lg:w-[100%] lg:h-[142px]">
 
         <div className="bandage-sub-wrapper flex flex-col lg:items-center justify-between lg:flex-row w-[243px] h-[93px] lg:w-[1050px] lg:h-[138px] py-[40px]">
           <div className="w-[236px] h-[58px]">
@@ -28,7 +28,7 @@ export default function Footer() {
 
       <hr className="w-[390px] lg:w-[1057px] border-[#E6E6E6] border-[1px]" />
 
-      <div className="footer-links-wrapper flex items-center justify-center w-[414px] h-[1071px] lg:w-[1440px] lg:h-[272px]">
+      <div className="footer-links-wrapper flex items-center justify-center w-[100%] h-[1071px] lg:h-[272px]">
 
         <div className="footer-links-sub-wrapper flex flex-col lg:flex-row gap-[30px] w-[321px] h-[1071px] lg:w-[1050px] lg:h-[270px] py-[50px]">
           <div className="flex flex-col w-[148px] h-[170px] gap-[20px]">
@@ -183,7 +183,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="w-[414px] h-[98px] lg:w-[1440px] lg:h-[74px] flex justify-center">
+      <div className="w-[100%] h-[98px] lg:h-[74px] flex justify-center">
         <div className="w-[193px] h-[48px] lg:w-[1050px] lg:h-[74px] py-[25px]">
           <h6 className="text-[14px] text-[#737373] leading-[24px] font-bold text-center lg:text-left">
             Made with love by Chika. All rights reserved.
