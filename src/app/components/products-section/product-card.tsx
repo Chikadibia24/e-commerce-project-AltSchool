@@ -14,8 +14,8 @@ export default function ProductCard({
   classNameDesktop: string;
 }) {
   return (
-    <div className="w-[295px] h-[522px] lg:w-[183px] lg:h-[400px] flex flex-col items-center justify-center shadow-md">
-      <div className="w-[295px] h-[522px] lg:w-[183px] lg:h-[238px]">
+    <div className="w-[295px] h-[522px] lg:w-[240px] lg:h-[400px] flex flex-col items-center justify-center shadow-md">
+      <div className="w-[295px] h-[522px] lg:w-[239px] lg:h-[280px]">
         <Image src={imageMobile} alt={imageAlt} className={classNameMobile} />
         <Image src={imageDesktop} alt={imageAlt} className={classNameDesktop} />
       </div>

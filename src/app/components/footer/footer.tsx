@@ -11,7 +11,7 @@ export default function Footer() {
 
       <div className="bandage-main-wrapper flex items-center lg:justify-center w-[321px] h-[173px] lg:w-[100%] lg:h-[142px]">
 
-        <div className="bandage-sub-wrapper flex flex-col lg:items-center justify-between lg:flex-row w-[243px] h-[93px] lg:w-[1050px] lg:h-[138px] py-[40px]">
+        <div className="bandage-sub-wrapper flex flex-col gap-[18px] lg:gap-[0] lg:items-center justify-between lg:flex-row w-[243px] h-[93px] lg:w-[1050px] lg:h-[138px] py-[40px]">
           <div className="w-[236px] h-[58px]">
             <h3 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
               Bandage
