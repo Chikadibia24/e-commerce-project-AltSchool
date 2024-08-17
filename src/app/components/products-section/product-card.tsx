@@ -14,13 +14,13 @@ export default function ProductCard({
   classNameDesktop: string;
 }) {
   return (
-    <div className="w-[295px] h-[522px] lg:w-[240px] lg:h-[400px] flex flex-col items-center justify-center shadow-md">
-      <div className="w-[295px] h-[522px] lg:w-[239px] lg:h-[280px]">
+    <div className="w-[295px] h-[522px] lg:w-[240px] lg:h-[445px] flex flex-col items-center justify-center shadow-md">
+      <div className="w-[295px] flex justify-center h-[522px] lg:w-[235px] lg:h-[280px]">
         <Image src={imageMobile} alt={imageAlt} className={classNameMobile} />
         <Image src={imageDesktop} alt={imageAlt} className={classNameDesktop} />
       </div>
 
-      <div className="w-[183px] h-[162px] flex flex-col items-center justify-center gap-[10px] px-[25px] pt-[25px] pb-[35px]">
+      <div className="w-[183px] h-[162px] flex flex-col items-center justify-center gap-[10px] px-[25px] pt-[25px] pb-[25px]">
         <h5 className="text-[16px] text-[#252B42] leading-[24px] font-bold text-center">
           Graphic Design
         </h5>

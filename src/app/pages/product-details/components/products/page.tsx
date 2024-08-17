@@ -25,7 +25,7 @@ export default function ProductsSection(){
         <div className="horizontal-rule w-[1042px] h-[2px] bg-[#ececec]"></div>
 
         {/* Products Cards Container - 1 */}
-        <div className="product-cards-container-1 w-[1049px] h-[442px] flex items-center gap-[30px]">
+        <div className="product-cards-container-1 w-[1049px] h-[485px] flex items-center gap-[24px]">
           <ProductCard
             imageMobile={``}
             imageDesktop={BestSellerProductCover1}
@@ -57,7 +57,7 @@ export default function ProductsSection(){
         </div>
 
         {/* Products Cards Container - 2 */}
-        <div className="product-cards-container-2 w-[1049px] h-[442px] flex items-center gap-[30px]">
+        <div className="product-cards-container-2 w-[1049px] h-[485px] flex items-center gap-[24px]">
           <ProductCard
             imageMobile={``}
             imageDesktop={BestSellerProductCover5}

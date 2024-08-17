@@ -17,7 +17,7 @@ export default function Products() {
   return (
     <section className="products-section w-[100%] flex justify-center items-center">
       {/* Main Wrapper */}
-      <div className="main-wrapper w-[343px] lg:w-[1124px] h-[3168px] lg:h-[1241px] flex flex-col items-center justify-center gap-[30px] py-[80px]">
+      <div className="main-wrapper w-[343px] lg:w-[100%] h-[3168px] lg:h-[1241px] flex flex-col items-center justify-center gap-[30px] py-[80px]">
         {/* Sub Wrapper - 1 */}
         <div className="sub-wrapper-1 w-[300px] lg:w-[692px] h-[114px] lg:h-[102px] flex flex-col items-center gap-[10px]">
           <h2 className="text-[20px] text-[#737373] leading-[30px] font-bold text-center">
@@ -34,8 +34,8 @@ export default function Products() {
         </div>
 
         {/* Sub Wrapper - 2 */}
-        <div className="sub-wrapper-2 w-[343px] lg:w-[1083px] h-[2794px] lg:h-[863px] flex flex-col items-center justify-center p-[24px] gap-[25px]">
-          <div className="sub-wrapper-2-1 w-[295px] lg:w-[1035px] lg:h-[400px] flex flex-col lg:flex-row items-center justify-center gap-[25px]">
+        <div className="sub-wrapper-2 w-[343px] lg:w-[100%] h-[2794px] lg:h-[980px] flex flex-col items-center justify-center p-[24px] gap-[17px]">
+          <div className="sub-wrapper-2-1 w-[295px] lg:w-[100%] lg:h-[485px] flex flex-col lg:flex-row items-center justify-center gap-[15px]">
             <ProductCard
               imageMobile={mobileProductCardOneImage}
               imageDesktop={ProductCardOneImage}
@@ -73,7 +73,7 @@ export default function Products() {
             />
           </div>
 
-          <div className="sub-wrapper-2-2 w-[295px] lg:w-[1035px] lg:h-[400px] hidden lg:flex lg:flex-row items-center justify-center gap-[25px]">
+          <div className="sub-wrapper-2-2 w-[295px] lg:w-[100%] lg:h-[485px] hidden lg:flex lg:flex-row items-center justify-center gap-[15px]">
             <ProductCard
               imageMobile={``}
               imageDesktop={``}
