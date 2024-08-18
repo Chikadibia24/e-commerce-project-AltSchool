@@ -2,9 +2,7 @@ import BreadCrumb from "./components/bread-crumb/bread-crumb";
 import Clients from "./components/client-carousel/clients";
 import ProductCard from "./components/product-card/product-card";
 import ProductDescription from "./components/product-description/product-description";
-import ProductsSection from "./components/products/page";
-import BreadcrumbRightArrow from "/src/assets/images/breadcrumb-right-arrow.svg";
-
+import ProductsSection from "./components/products/products-section";
 
 export default function ProductDetails() {
   return (
