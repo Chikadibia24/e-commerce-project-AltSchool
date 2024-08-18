@@ -20,7 +20,7 @@ export default function ProductDescription() {
 
   function DescriptionText({ styles, text }: { styles: string; text: string; }) {
     return (
-      <div className={`first-para-text-container h-[60px] ${styles}`}>
+      <div className={`para-text-container h-[60px] ${styles}`}>
         <p className="text-[14px] leading-5 text-[#737373] font-[400]">
           {text}
         </p>
@@ -58,7 +58,7 @@ export default function ProductDescription() {
           />
 
           <DescriptionText
-            styles={`w-[513px] border-l-[3px] border-[#23856D]`}
+            styles={`w-[513px] border-l-[3px] border-[#23856D] pl-[20px]`}
             text={`Met minim Mollie non desert Alamo est sit cliquey dolor do met
               sent. RELIT official consequent door ENIM RELIT Mollie. Excitation
               venial consequent sent nostrum met.`}
