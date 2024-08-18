@@ -9,7 +9,7 @@ import BestSellerProductCover7 from "/src/assets/images/best-seller-product-cove
 import BestSellerProductCover8 from "/src/assets/images/best-seller-product-cover-8.svg";
 
 
-export default function ProductsSection(){
+export default function ProductsSection({text}:{text:string}){
   return (
     <section className="products-section w-[100%] h-[1086px] hidden lg:flex justify-center">
       {/* Products Container */}
@@ -17,7 +17,7 @@ export default function ProductsSection(){
         {/* Heading Container */}
         <div className="heading-container w-[1040px] h-[32px]">
           <h3 className="text-[24px] leading-8 text-[#252b42] font-bold">
-            BESTSELLER PRODUCTS
+            {text}
           </h3>
         </div>
 
