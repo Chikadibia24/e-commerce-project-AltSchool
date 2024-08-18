@@ -11,7 +11,7 @@ export default function Cart(){
         arrow2={``}
       />
       <CartPage/>
-      <ProductsSection text={`PRODUCTS RELATED TO ITEMS IN YOUR CART`} />
+      <ProductsSection headingText={`PRODUCTS RELATED TO ITEMS IN YOUR CART`} />
     </main>
   );
 }

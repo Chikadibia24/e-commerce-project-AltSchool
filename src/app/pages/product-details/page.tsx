@@ -12,7 +12,7 @@ export default function ProductDetails() {
       <BreadCrumb text1={`text-[#BDBDBD]`} text2={`hidden`} arrow2={`hidden`} />
       <ProductCard />
       <ProductDescription />
-      <ProductsSection text={`BESTSELLER PRODUCTS`} />
+      <ProductsSection headingText={`BESTSELLER PRODUCTS`} />
       <Clients />
     </main>
   );
