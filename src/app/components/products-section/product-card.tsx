@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+// import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function ProductCard({
   imageMobile,
@@ -12,9 +16,17 @@ export default function ProductCard({
   imageAlt: string;
   classNameMobile: string;
   classNameDesktop: string;
-}) {
+  }) {
+  const router = useRouter();
+  const handleClick = () => {router.push("/pages/product-details");}
+  
   return (
-    <div className="w-[295px] h-[522px] lg:w-[240px] lg:h-[445px] flex flex-col items-center justify-center shadow-md">
+    <button onClick={handleClick} onKeyDown={(e) => {
+      if (e.key === "Enter" || e.key === "Space") {
+        handleClick();
+      }
+    }}
+      className="w-[295px] h-[522px] lg:w-[240px] lg:h-[445px] flex flex-col items-center justify-center hover:shadow-2xl hover:-translate-y-1 duration-[0.2s]  ease-linear">
       <div className="w-[295px] flex justify-center h-[522px] lg:w-[235px] lg:h-[280px]">
         <Image src={imageMobile} alt={imageAlt} className={classNameMobile} />
         <Image src={imageDesktop} alt={imageAlt} className={classNameDesktop} />
@@ -44,6 +56,6 @@ export default function ProductCard({
           </h5>
         </div>
       </div>
-    </div>
+    </button>
   );
 }

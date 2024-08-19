@@ -1,6 +1,15 @@
-import "/src/app/globals.css";
+"use client";
+import { useRouter } from "next/navigation";
 
 export default function CallToAction() {
+
+
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/pages/products");
+  };
+
+
   return (
     <section
       className="cta-section 
@@ -36,7 +45,10 @@ export default function CallToAction() {
             </h3>
           </div>
 
-          <button className="w-[292px] h-[52px] px-[40px] py-[15px] bg-[#23A6F0] rounded-[5px] text-[14px] leading-[22px] text-center font-bold text-[#ffffff]">
+          <button
+            onClick={handleClick}
+            className="w-[292px] h-[52px] px-[40px] py-[15px] bg-[#23A6F0] rounded-[5px] text-[14px] leading-[22px] text-center font-bold text-[#ffffff]"
+          >
             Shop With Us Now!
           </button>
         </div>

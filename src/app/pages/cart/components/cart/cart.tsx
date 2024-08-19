@@ -1,4 +1,8 @@
+"use client";
+
 export default function CartPage() {
+
+
   return (
     <section className="cart-section w-[100%] h-[647px] flex items-center justify-center">
       {/*Main Container*/}

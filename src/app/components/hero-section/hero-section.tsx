@@ -7,7 +7,7 @@ export default function HeroSection() {
         <div className="parent-sub-container w-[333px] h-[1245px] lg:w-[1146px] lg:h-[616px] flex flex-col lg:flex-row lg:items-center gap-[15px]">
           {/*Card-1*/}
           <div
-            className="card-1 w-[332px] h-[300px] lg:w-[452px] lg:h-[616px] 
+            className="card-1 w-[332px] h-[300px] lg:w-[452px] lg:h-[616px] hover:shadow-2xl hover:-translate-y-1 duration-[0.2s]  ease-linear
           
           bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723659302/e-commerce-project-AltSchool/mobile-hero-section-card-bg-1_fr6mug.svg')]
 
@@ -33,6 +33,7 @@ export default function HeroSection() {
             {/*Card-2*/}
             <div
               className="card-2 w-[332px] h-[300px] lg:w-[680px] lg:h-[300px] 
+              hover:shadow-2xl hover:-translate-y-1 duration-[0.2s]  ease-linear
 
             bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723659705/e-commerce-project-AltSchool/mobile-hero-section-card-bg-2_wcqne0.svg')]
             
@@ -58,6 +59,7 @@ export default function HeroSection() {
               {/*Card-3*/}
               <div
                 className="card-3 w-[332px] h-[300px] 
+                hover:shadow-2xl hover:-translate-y-1 duration-[0.2s]  ease-linear
               
               bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723495858/e-commerce-project-AltSchool/hero-section-card-bg-3_zv8wmp.svg')]
               
@@ -81,6 +83,7 @@ export default function HeroSection() {
               {/*Card-4*/}
               <div
                 className="card-4 w-[332px] h-[300px] 
+                hover:shadow-2xl hover:-translate-y-1 duration-[0.2s]  ease-linear
               
               bg-[url('https://res.cloudinary.com/chikadibia/image/upload/v1723495919/e-commerce-project-AltSchool/hero-section-card-bg-4_ffdcf0.svg')]
               

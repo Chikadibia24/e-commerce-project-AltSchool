@@ -1,7 +1,7 @@
 import Image from "next/image";
-import easyWinsIcon from "/src/assets/images/easy-wins-icon.svg";
-import openBookIcon from "/src/assets/images/open-book-icon.svg";
-import dataGrowthIcon from "/src/assets/images/data-growth-icon.svg";
+import easyWinsIcon from "@/assets/images/easy-wins-icon.svg";
+import openBookIcon from "@/assets/images/open-book-icon.svg";
+import dataGrowthIcon from "@/assets/images/data-growth-icon.svg";
 
 
 export default function Features() {

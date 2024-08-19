@@ -1,7 +1,8 @@
+import Link from "next/link";
 import Image from "next/image";
-import facebookIcon from "/src/assets/images/facebook-icon-footer.svg";
-import instagramIcon from "/src/assets/images/instagram-icon-footer.svg";
-import twitterIcon from "/src/assets/images/twitter-icon-footer.svg";
+import facebookIcon from "@/assets/images/facebook-icon-footer.svg";
+import instagramIcon from "@/assets/images/instagram-icon-footer.svg";
+import twitterIcon from "@/assets/images/twitter-icon-footer.svg";
 
 
 
@@ -13,9 +14,11 @@ export default function Footer() {
 
         <div className="bandage-sub-wrapper flex flex-col gap-[18px] lg:gap-[0] lg:items-center justify-between lg:flex-row w-[243px] h-[93px] lg:w-[1050px] lg:h-[138px] py-[40px]">
           <div className="w-[236px] h-[58px]">
-            <h3 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
-              Bandage
-            </h3>
+            <Link href="/">
+              <h3 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
+                Bandage
+              </h3>
+            </Link>
           </div>
 
           <div className="flex lg:justify-center gap-[20px] w-[236px] h-[24px]">

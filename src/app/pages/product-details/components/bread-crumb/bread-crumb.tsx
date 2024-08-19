@@ -1,3 +1,5 @@
+"use client";
+import Link from "next/link";
 import Image from "next/image";
 import BreadcrumbRightArrow from "/src/assets/images/breadcrumb-right-arrow.svg";
 
@@ -15,21 +17,21 @@ export default function BreadCrumb({
       {/*Main Container*/}
       <div className="main-wrapper w-[414px] lg:w-[1033px] h-[44px] flex items-center justify-center lg:justify-start">
         <div className="breadcrumb w-[275px] h-[44px] flex items-center gap-[15px]">
-          <a
-            href="http://"
+          <Link
+            href="/"
             className="text-[14px] text-[#252B42] leading-6 font-bold"
           >
             Home
-          </a>
+          </Link>
 
           <Image src={BreadcrumbRightArrow} alt="Breadcrumb Right Arrow" />
 
-          <a
-            href="http://"
+          <Link
+            href="/pages/product-details"
             className={`text-[14px] leading-6 font-bold ${text1}`}
           >
             Shop
-          </a>
+          </Link>
 
           <Image
             src={BreadcrumbRightArrow}
@@ -37,12 +39,12 @@ export default function BreadCrumb({
             className={`${arrow2}`}
           />
 
-          <a
-            href="http://"
+          <Link
+            href="/pages/cart"
             className={`text-[14px] leading-6 font-bold ${text2}`}
           >
             Shopping Cart
-          </a>
+          </Link>
         </div>
       </div>
     </section>

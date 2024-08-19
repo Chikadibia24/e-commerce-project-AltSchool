@@ -1,15 +1,26 @@
+"use client"
+import { useRouter } from "next/navigation";
+
 import Image from "next/image";
-import clockIcon from "/src/assets/images/clock-icon.svg";
-import chartIcon from "/src/assets/images/chart-icon.svg";
-import rightArrowIcon from "/src/assets/images/right-arrow-icon.svg";
+import clockIcon from "@/assets/images/clock-icon.svg";
+import chartIcon from "@/assets/images/chart-icon.svg";
+import rightArrowIcon from "@/assets/images/right-arrow-icon.svg";
 
 
 
 export default function BlogCard({ bgImage }: { bgImage: string }) {
+  const route = useRouter();
+  const handleClick = () => {
+    route.push("/pages/blog");
+  } 
+
+
   return (
     <div className="blog-card w-[348px] h-[606px] flex flex-col shadow-md">
       {/* Wrapper - 1 */}
-      <div className={`wrapper-1 w-[348px] h-[300px] pl-[20px] pt-[20px] ${bgImage}`}>
+      <div
+        className={`wrapper-1 w-[348px] h-[300px] pl-[20px] pt-[20px] ${bgImage}`}
+      >
         <div className="w-[58px] h-[24px] px-[10px] bg-[#E74040] rounded-[3px]">
           <h6 className="text-[14px] text-[#ffffff] leading-[24px] font-bold text-center">
             NEW
@@ -60,12 +71,15 @@ export default function BlogCard({ bgImage }: { bgImage: string }) {
           </div>
         </div>
 
-        <div className="wrapper-2-learn-more w-[104px] h-[24px] flex items-center gap-[10px]">
+        <button 
+          onClick={handleClick}
+          className="wrapper-2-learn-more w-[104px] h-[24px] flex items-center gap-[10px]"
+        >
           <h6 className="text-[14px] text-[#737373] leading-[24px] font-bold text-center">
             Learn More
           </h6>
           <Image src={rightArrowIcon} alt="Right Arrow Icon" />
-        </div>
+        </button>
       </div>
     </div>
   );
