@@ -17,7 +17,7 @@ export default function Products() {
       {/* Main Wrapper */}
       <div className="main-wrapper w-[343px] lg:w-[100%] h-[5600px] lg:h-[2250px] flex flex-col items-center justify-center gap-[30px] pt-[60px] pb-[100px]">
         {/* Sub Wrapper - 1 */}
-        <div className="sub-wrapper-1 w-[300px] lg:w-[692px] h-[114px] lg:h-[102px] flex flex-col items-center gap-[10px]">
+        <div className="sub-wrapper-1 w-[300px] lg:w-[692px] h-[155px] lg:h-[102px] flex flex-col items-center gap-[10px]">
           <h2 className="text-[20px] text-[#737373] leading-[30px] font-bold text-center">
             Select From Our Wide Range Of Products
           </h2>
@@ -32,7 +32,7 @@ export default function Products() {
         </div>
 
         {/* Sub Wrapper - 2 */}
-        <div className="sub-wrapper-2 w-[343px] lg:w-[100%] h-[2794px] lg:h-[980px] flex flex-col items-center justify-center p-[24px] gap-[17px]">
+        <div className="sub-wrapper-2 w-[343px] lg:w-[100%] h-[2794px] lg:h-[980px] flex flex-col items-center justify-center px-[24px] pt-[24px] gap-[17px]">
           <div className="sub-wrapper-2-1 w-[295px] lg:w-[100%] lg:h-[485px] flex flex-col lg:flex-row items-center justify-center gap-[15px]">
             <ProductCard
               imageMobile={mobileProductCardOneImage}
@@ -111,7 +111,7 @@ export default function Products() {
         </div>
 
         {/* Sub Wrapper - 2 */}
-        <div className="sub-wrapper-2 w-[343px] lg:w-[100%] h-[2794px] lg:h-[980px] flex flex-col items-center justify-center p-[24px] gap-[17px]">
+        <div className="sub-wrapper-2 w-[343px] lg:w-[100%] h-[2794px] lg:h-[980px] flex flex-col items-center justify-center px-[24px] pb-[24px] gap-[17px]">
           <div className="sub-wrapper-2-1 w-[295px] lg:w-[100%] lg:h-[485px] flex flex-col lg:flex-row items-center justify-center gap-[15px]">
             <ProductCard
               imageMobile={mobileProductCardOneImage}
