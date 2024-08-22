@@ -1,104 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import StarIcon from "@/assets/images/cart-star-icon.svg";
-import DinningChair from "@/assets/images/dinning-chair-product.svg";
-import NairaSignOne from "@/assets/images/naira-sign.svg";
-import NairaSignTwo from "@/assets/images/naira-sign-2.svg";
-import DeleteIcon from "@/assets/images/delete-icon.svg";
+import PayStackLogo from "@/assets/images/paystack-logo.svg";
+import MasterCardLogo from "@/assets/images/mastercard-logo.svg";
+import VisaCardLogo from "@/assets/images/visacard-logo.svg";
+
+import ItemDetailsCard from "./item-details-card";
+import OrderSummaryDetails from "./order-summary-details";
 
 
 
 export default function CartPage() {
 
-  const ItemDetailsCard = () => {
-
-
-    const AddMinusButton = ({ text, styles }: { text: string; styles: string; }) =>{
-      return (
-        <button
-          type="button"
-          className={`w-[28px] h-[28px] flex items-center justify-center rounded-full ${styles}`}
-        >{text}</button>
-      );
-    }
-
-    return (
-      <div className="main-wrapper w-[566px] flex flex-col gap-[15px] pb-[10px] border-b border-b-[#DCDCDC]">
-        <div className="main-container flex items-center gap-[40px]">
-          <div className="sub-wrapper-1 w-[244px] h-[75px] flex items-center gap-[16px]">
-            <div className="sub-wrapper-1-1 w-[100px] h-[75px]">
-              <Image src={DinningChair} alt="Dinning Chair Product" />
-            </div>
-
-            <div className="sub-wrapper-1-2 w-[128px] h-[54px]">
-              <div className="w-[128px] h-[33px] flex flex-col gap-[4px]">
-                <p className="text-[12px] text-[#2B2B2B] leading-[15px] font-[500]">
-                  Graphic Design
-                </p>
-                <p className="text-[10px] text-[#2BA501] leading-[14px] font-[400]">
-                  In Stock
-                </p>
-              </div>
-              <div className="w-[128px] h-[15px] flex items-center gap-[6px]">
-                <div className="ratings-container flex items-center">
-                  <Image src={StarIcon} alt="Star rating Icon" />
-                  <Image src={StarIcon} alt="Star rating Icon" />
-                  <Image src={StarIcon} alt="Star rating Icon" />
-                  <Image src={StarIcon} alt="Star rating Icon" />
-                  <Image src={StarIcon} alt="Star rating Icon" />
-                </div>
-                <div className="review-container flex items-center">
-                  <p className="text-[8px] text-[#3A3C3E] leading-[10px] font-[400]">
-                    {`${28} Reviews`}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="sub-wrapper-2 w-[152px] h-[32px] flex items-center gap-[10px]">
-            <AddMinusButton
-              styles={`bg-[#E8EAEC] text-[22px] text-[#3A3C3E]`}
-              text={`-`}
-            />
-            <div className="w-[64px] h-[28px] flex items-center justify-center border border-[#3A3C3E] rounded-[4px]">
-              {1}
-            </div>
-            <AddMinusButton styles={`bg-[#23A6F0] text-[#FCFCFC]`} text={`+`} />
-          </div>
-
-          <div className="sub-wrapper-3 w-[90px] h-[47px]">
-            <div className="w-[60px] h-[22px] flex items-center gap-[4px]">
-              <Image src={NairaSignOne} alt="Naira Sign" />
-              <p className="text-[16px] text-[#121517] leading-[22px] font-[500]">
-                3,000
-              </p>
-            </div>
-            <div className="w-[90px] h-[24px] flex items-center gap-[4px]">
-              <Image src={NairaSignTwo} alt="Naira Sign" />
-              <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
-                3,000
-              </p>
-              <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
-                {`x`}
-              </p>
-              <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
-                {`${1} item`}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <button type="button" className="w-[71px] h-[16px] flex items-start gap-[5px]">
-          <Image src={DeleteIcon} alt="Delete Icon" />
-          <span className="text-[12px] text-[#23A6F0] leading-[14px] font-[700]">
-            REMOVE
-          </span>
-        </button>
-      </div>
-    );
-  }
+  
 
   return (
     <section className="cart-section w-[100%] h-[647px] flex items-center justify-center">
@@ -148,7 +62,7 @@ export default function CartPage() {
         {/*Cart Order Summary*/}
         <div className="cart-order-summary w-[451px] h-[638px] flex flex-col items-center gap-[30px] pt-[30px] bg-white rounded-[4px]">
           {/*Order Summary Header Text*/}
-          <div className="order-summary-header-text w-[383px] h-[29px] flex items-center justify-between">
+          <div className="order-summary-header-text w-[387px] h-[29px] flex items-center justify-between">
             <h3 className="text-[20px] text-[#121517] leading-7 font-bold">
               Order Summary
             </h3>
@@ -158,7 +72,61 @@ export default function CartPage() {
             </h3>
           </div>
 
-          <div className="w-[383px] h-[29px]"></div>
+          <div className="w-[387px] flex items-center pb-[15px] border-b-[1px] border-b-[#DCDCDC]">
+            <OrderSummaryDetails
+              height={``}
+              text1={`Delivery Charges`}
+              text2={`Add your delivery address to checkout to see delivery charges.`}
+              text1Style={`text-[#3A3C3E] text-[16px] leading-[23px]`}
+              text2Style={`text-[#F56666] text-[10px] leading-[14px] text-right`}
+            />
+          </div>
+
+          <div className="w-[387px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
+            <OrderSummaryDetails
+              height={``}
+              text1={`Subtotal`}
+              text2={`${String.fromCharCode(8358)} 26,500`}
+              text1Style={`text-[#3A3C3E] text-[16px] leading-[23px]`}
+              text2Style={`text-[#3A3C3E] text-[15px] leading-[22px] text-right`}
+            />
+          </div>
+
+          <div className="w-[387px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
+            <OrderSummaryDetails
+              height={``}
+              text1={`Total`}
+              text2={`${String.fromCharCode(8358)} 26,500`}
+              text1Style={`text-[#121517] text-[20px] leading-[28px]`}
+              text2Style={`text-[#121517] text-[20px] leading-[28px] text-right`}
+            />
+          </div>
+
+          <div className="w-[387px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
+            <OrderSummaryDetails
+              height={``}
+              text1={``}
+              text2={`Excluding Delivery Charges`}
+              text1Style={``}
+              text2Style={`text-[#F56666] text-[10px] leading-[14px] text-right`}
+            />
+          </div>
+
+          <div className="w-[387px] h-[124px] flex flex-col gap-[30px]">
+            <button className="w-[387px] h-[56px] flex items-center justify-center bg-[#23A6F0] rounded-[5px] text-[#ffffff] text-[16px] leading-6 font-bold">
+              Proceed to Checkout
+            </button>
+
+            <div className="w-[387px] h-[36px] flex flex-col justify-end border-t-[1px] border-t-[#DCDCDC]">
+              
+
+              <div className="w-[151px] h-[12px] flex gap-[16px]">
+                <Image src={PayStackLogo} alt="PayStack Logo" />
+                <Image src={MasterCardLogo} alt="MasterCard Logo" />
+                <Image src={VisaCardLogo} alt="VisaCard Logo" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
