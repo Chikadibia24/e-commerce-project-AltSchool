@@ -6,6 +6,7 @@ import MasterCardLogo from "@/assets/images/mastercard-logo.svg";
 import VisaCardLogo from "@/assets/images/visacard-logo.svg";
 
 import ItemDetailsCard from "./item-details-card";
+import MobileItemDetailsCard from "./mobile-item-details-card";
 import OrderSummaryDetails from "./order-summary-details";
 
 
@@ -15,20 +16,20 @@ export default function CartPage() {
   
 
   return (
-    <section className="cart-section w-[100%] h-[647px] flex items-center justify-center">
+    <section className="cart-section w-[100%] h-[1200px] lg:h-[647px] flex items-center justify-center">
       {/*Main Container*/}
-      <div className="main-container w-[1161px] h-[638px] flex items-center gap-[56px]">
+      <div className="main-container w-[388px] h-[1200px] lg:w-[1161px] lg:h-[638px] flex flex-col lg:flex-row items-center lg:gap-[56px]">
         {/*Cart Items*/}
-        <div className="cart-items w-[654px] h-[638px] flex flex-col items-center gap-[30px] pt-[30px] bg-white rounded-[4px]">
+        <div className="cart-items w-[388px] h-[752px] lg:w-[654px] lg:h-[638px] flex flex-col items-center gap-[30px] pt-[30px] bg-white rounded-[4px]">
           {/*Shopping Cart Header Text*/}
-          <div className="shopping-cart-header-text w-[590px] h-[34px]">
+          <div className="shopping-cart-header-text w-[388px] lg:w-[590px] h-[34px]">
             <h2 className="text-[24px] text-[#121517] leading-[34px] font-[600]">
               Shopping Cart
             </h2>
           </div>
 
           {/* Cart Info Header*/}
-          <div className="cart-items-info-header-wrapper w-[590px] h-[56px] flex items-center justify-center rounded-tr-[4px] rounded-tl-[4px] bg-[#3B4148]">
+          <div className="cart-items-info-header-wrapper w-[590px] h-[56px] hidden lg:flex items-center justify-center rounded-tr-[4px] rounded-tl-[4px] bg-[#3B4148]">
             <div className="cart-items-info-header-container w-[542px] h-[23px] flex items-center justify-between pr-[30px]">
               <div className="item-details-container">
                 <p className="text-[14px] text-[#fefefe] leading-[23px] font-[600]">
@@ -52,17 +53,23 @@ export default function CartPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-[25px]">
+          <div className="desktop-cards hidden lg:flex flex-col gap-[25px]">
             <ItemDetailsCard />
             <ItemDetailsCard />
             <ItemDetailsCard />
           </div>
+
+          <div className="mobile-cards flex flex-col gap-[25px] lg:hidden">
+            <MobileItemDetailsCard />
+            <MobileItemDetailsCard />
+            <MobileItemDetailsCard />
+          </div>
         </div>
 
         {/*Cart Order Summary*/}
-        <div className="cart-order-summary w-[451px] h-[638px] flex flex-col items-center gap-[30px] pt-[30px] bg-white rounded-[4px]">
+        <div className="cart-order-summary w-[388px] lg:w-[451px] h-[638px] flex flex-col items-center gap-[30px] pt-[30px] bg-white rounded-[4px]">
           {/*Order Summary Header Text*/}
-          <div className="order-summary-header-text w-[387px] h-[29px] flex items-center justify-between">
+          <div className="order-summary-header-text w-[385px] h-[29px] flex items-center justify-between">
             <h3 className="text-[20px] text-[#121517] leading-7 font-bold">
               Order Summary
             </h3>
@@ -72,7 +79,7 @@ export default function CartPage() {
             </h3>
           </div>
 
-          <div className="w-[387px] flex items-center pb-[15px] border-b-[1px] border-b-[#DCDCDC]">
+          <div className="w-[385px] flex items-center pb-[15px] border-b-[1px] border-b-[#DCDCDC]">
             <OrderSummaryDetails
               height={``}
               text1={`Delivery Charges`}
@@ -82,7 +89,7 @@ export default function CartPage() {
             />
           </div>
 
-          <div className="w-[387px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
+          <div className="w-[385px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
             <OrderSummaryDetails
               height={``}
               text1={`Subtotal`}
@@ -92,7 +99,7 @@ export default function CartPage() {
             />
           </div>
 
-          <div className="w-[387px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
+          <div className="w-[385px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
             <OrderSummaryDetails
               height={``}
               text1={`Total`}
@@ -102,7 +109,7 @@ export default function CartPage() {
             />
           </div>
 
-          <div className="w-[387px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
+          <div className="w-[385px] flex items-center border-b-[1px] border-b-[#DCDCDC]">
             <OrderSummaryDetails
               height={``}
               text1={``}
@@ -112,15 +119,13 @@ export default function CartPage() {
             />
           </div>
 
-          <div className="w-[387px] h-[124px] flex flex-col gap-[30px]">
-            <button className="w-[387px] h-[56px] flex items-center justify-center bg-[#23A6F0] rounded-[5px] text-[#ffffff] text-[16px] leading-6 font-bold">
+          <div className="w-[385px] h-[124px] flex flex-col gap-[30px]">
+            <button className="w-[385px] h-[56px] flex items-center justify-center bg-[#23A6F0] rounded-[5px] text-[#ffffff] text-[16px] leading-6 font-bold">
               Proceed to Checkout
             </button>
 
-            <div className="w-[387px] h-[36px] flex flex-col justify-end border-t-[1px] border-t-[#DCDCDC]">
-              
-
-              <div className="w-[151px] h-[12px] flex gap-[16px]">
+            <div className="w-[385px] h-[36px] flex flex-col justify-end border-t-[1px] border-t-[#DCDCDC]">
+              <div className="w-[151px] h-[12px] hidden lg:flex gap-[16px]">
                 <Image src={PayStackLogo} alt="PayStack Logo" />
                 <Image src={MasterCardLogo} alt="MasterCard Logo" />
                 <Image src={VisaCardLogo} alt="VisaCard Logo" />
