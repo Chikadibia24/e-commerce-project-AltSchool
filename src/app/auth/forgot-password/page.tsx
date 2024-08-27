@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { validateEmail } from "@/app/utils/validation";
+import { validateEmail, validatePassword } from "@/app/utils/validation";
 import { findUserByEmail, updateUserInLocalStorage } from "@/app/utils/auth";
 
 const ForgotPassword = () => {
