@@ -11,12 +11,44 @@ import starOutlineIcon from "@/assets/images/star-icon-outline.svg";
 import ProductCardFavoriteIcon from "@/assets/images/product-card-favorite-icon.svg";
 import ProductCardCartIcon from "@/assets/images/product-card-cart-icon.svg";
 import ProductCardEyeIcon from "@/assets/images/product-card-eye-icon.svg";
-import { useRouter } from "next/navigation";
+
+import { useState } from 'react';
+import { useRouter, usePathname } from "next/navigation";
+import { addToCart, addToFavorites, getCurrentUser } from "@/app/utils/cart";
 
 
 
-export default function ProductCard() {
+export default function ProductCard({ productId }: { productId: string }) {
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const [error, setError] = useState<string | null>(null);
+
+  const handleAddToCart = () => {
+    try {
+      addToCart(productId);
+      alert('Product added to cart');
+    } catch (err) {
+      setError(err.message);
+      router.push(`/auth/login?redirectTo=${encodeURIComponent(pathname)}`);
+      
+    }
+  };
+
+  const handleAddToFavorites = () => {
+    try {
+      addToFavorites(productId);
+      alert('Product added to favorites');
+    } catch (err) {
+      setError(err.message);
+      router.push("/auth/login");
+    }
+  };
+
   
+
+
+
 
   function ProductColors({bgColor}: {bgColor: string}) {
     return <div className={`w-[30px] h-[30px] rounded-full hover:cursor-pointer ${bgColor}`}></div>;
@@ -136,12 +168,16 @@ export default function ProductCard() {
           </div>
 
           <div className="product-actions w-[305px] h-[44px] flex items-center gap-[10px]">
-            <button className="w-[137px] h-[44px] py-[10px] px-[20px] bg-[#23A6F0] rounded-[5px] text-[14px] text-[white] leading-6 font-bold">
+            <button
+              type="button"
+              onClick={handleAddToCart}
+              className="w-[137px] h-[44px] py-[10px] px-[20px] bg-[#23A6F0] rounded-[5px] text-[14px] text-[white] leading-6 font-bold"
+            >
               Add To Cart
             </button>
 
             <ProductActionsBg
-              onclick={() => handleClick("")}
+              onclick={handleAddToFavorites}
               image={ProductCardFavoriteIcon}
               altText={`Product Card Favorite Icon`}
             />
@@ -156,6 +192,8 @@ export default function ProductCard() {
               altText={`Product Card Eye Icon`}
             />
           </div>
+
+          {error && <p>{error}</p>}
         </div>
       </div>
     </section>
