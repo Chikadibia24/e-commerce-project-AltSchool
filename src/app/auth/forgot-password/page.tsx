@@ -36,7 +36,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <section className="w-[100%] flex justify-center items-center">
+    <section className="w-[100%] flex justify-center items-center py-[24px]">
       <form
         onSubmit={handleForgotPassword}
         className="bg-[#fafafa] w-[380px] h-[520px] flex flex-col justify-center items-center gap-[30px] rounded-md shadow-xl hover:shadow-2xl"
@@ -77,7 +77,6 @@ const ForgotPassword = () => {
         >
           Reset Password
         </button>
-        
 
         <div className="createAccount-ResetPassword flex flex-col gap-[4px]">
           <div className="flex items-center gap-[10px]">

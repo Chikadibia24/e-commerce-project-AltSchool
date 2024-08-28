@@ -52,7 +52,7 @@ const LoginForm = () => {
   };
 
   return (
-    <section className="w-[100%] flex justify-center items-center">
+    <section className="w-[100%] flex justify-center items-center py-[24px]">
       <form
         onSubmit={handleLogin}
         className="bg-[#fafafa] w-[380px] h-[520px] flex flex-col justify-center items-center gap-[30px] rounded-md shadow-xl hover:shadow-2xl"

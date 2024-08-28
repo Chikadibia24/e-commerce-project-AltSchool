@@ -33,7 +33,7 @@ const Register = () => {
   };
 
   return (
-    <section className="w-[100%] flex justify-center items-center">
+    <section className="w-[100%] flex justify-center items-center py-[24px]">
       <form
         onSubmit={handleRegister}
         className="bg-[#fafafa] w-[380px] h-[520px] flex flex-col justify-center items-center gap-[30px] rounded-md shadow-xl hover:shadow-2xl"
@@ -74,7 +74,8 @@ const Register = () => {
 
         <div className="login-resetPassword flex flex-col gap-[4px]">
           <div className="flex items-center gap-[10px]">
-            <p className="text-[13px] text-[#404040] leading-[16px] font-[500]">Already have an account?
+            <p className="text-[13px] text-[#404040] leading-[16px] font-[500]">
+              Already have an account?
             </p>
             <Link href={`/auth/login`}>
               <button

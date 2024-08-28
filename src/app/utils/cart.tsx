@@ -31,6 +31,13 @@ export const addToFavorites = (productId: string) => {
   );
 };
 
+// export const goToCart = () => {
+//   const user = getCurrentUser();
+//   if (!user) {
+//     throw new Error("User not authenticated");
+//   }
+// }
+
 export const getCurrentUser = (): User | null => {
   if (typeof window !== "undefined") {
     const user = localStorage.getItem("currentUser");

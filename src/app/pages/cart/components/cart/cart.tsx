@@ -8,7 +8,7 @@ import VisaCardLogo from "@/assets/images/visacard-logo.svg";
 import ItemDetailsCard from "./item-details-card";
 import MobileItemDetailsCard from "./mobile-item-details-card";
 import OrderSummaryDetails from "./order-summary-details";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { getCurrentUser } from "@/app/utils/cart";
 
 
@@ -19,16 +19,21 @@ export default function CartPage() {
 
   
   const router = useRouter();
+  const pathname = usePathname();
+
 
   const handleCheckout = () => {
     const user = getCurrentUser();
     if (!user) {
-      router.push('/login');
-      return;
+      alert("User not authenticated!");
+      router.push(`/auth/login?redirectTo=${encodeURIComponent(pathname)}`);
+      // return;
+    } else if (user) {
+      router.push('/pages/checkout')
     }
 
     // Proceed with checkout process
-    alert('Proceeding to checkout');
+    //alert('Proceeding to checkout');
   };
 
   

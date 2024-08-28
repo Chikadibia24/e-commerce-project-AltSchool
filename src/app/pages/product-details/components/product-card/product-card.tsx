@@ -41,12 +41,22 @@ export default function ProductCard({ productId }: { productId: string }) {
       alert('Product added to favorites');
     } catch (err:any) {
       setError(err.message);
-      router.push("/auth/login");
+      router.push(`/auth/login?redirectTo=${encodeURIComponent(pathname)}`);
     }
   };
 
   
 
+  const handleGoToCart = () => {
+    const user = getCurrentUser();
+    if (!user) {
+      alert("User not authenticated!");
+      router.push(`/auth/login?redirectTo=${encodeURIComponent(pathname)}`);
+      // return;
+    } else if (user) {
+      router.push("/pages/cart");
+    }
+  };
 
 
 
@@ -182,7 +192,7 @@ export default function ProductCard({ productId }: { productId: string }) {
               altText={`Product Card Favorite Icon`}
             />
             <ProductActionsBg
-              onclick={() => handleClick("/pages/cart")}
+              onclick={handleGoToCart}
               image={ProductCardCartIcon}
               altText={`Product Card Cart Icon`}
             />
