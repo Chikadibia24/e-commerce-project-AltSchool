@@ -28,7 +28,7 @@ export default function ProductCard({ productId }: { productId: string }) {
     try {
       addToCart(productId);
       alert('Product added to cart');
-    } catch (err) {
+    } catch (err:any) {
       setError(err.message);
       router.push(`/auth/login?redirectTo=${encodeURIComponent(pathname)}`);
       
@@ -39,7 +39,7 @@ export default function ProductCard({ productId }: { productId: string }) {
     try {
       addToFavorites(productId);
       alert('Product added to favorites');
-    } catch (err) {
+    } catch (err:any) {
       setError(err.message);
       router.push("/auth/login");
     }
