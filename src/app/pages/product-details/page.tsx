@@ -8,7 +8,7 @@ export default function ProductDetails() {
   return (
     <main className="w-[100%] flex flex-col items-center gap-[10px] bg-[#FAFAFA]">
       <BreadCrumb text1={`text-[#BDBDBD]`} text2={`hidden`} arrow2={`hidden`} />
-      <ProductCard />
+      <ProductCard productId={``} />
       <ProductDescription />
       <ProductsSection headingText={`BESTSELLER PRODUCTS`} />
       <Clients />
