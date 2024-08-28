@@ -78,13 +78,15 @@ const Login = () => {
           Login
         </button>
 
-        <div className="flex flex-col gap-[4px]">
+        <div className="createAccount-ResetPassword flex flex-col gap-[4px]">
           <div className="flex items-center gap-[10px]">
-            <p>Don't have an account yet?</p>
+            <p className="text-[13px] text-[#404040] leading-[16px] font-[500]">
+              {`Don't have an account?`}
+            </p>
             <Link href={`/auth/register`}>
               <button
                 type="button"
-                className="text-[18px] text-[#252B42] leading-[32px] font-bold"
+                className="text-[16px] text-[#252B42] leading-[32px] font-bold"
               >
                 Create Account
               </button>
@@ -92,11 +94,13 @@ const Login = () => {
           </div>
 
           <div className="flex items-center gap-[10px]">
-            <p>Forgot Your password?</p>
+            <p className="text-[13px] text-[#404040] leading-[16px] font-[500]">
+              Forgot Your password?
+            </p>
             <Link href={`/auth/forgot-password`}>
               <button
                 type="button"
-                className="text-[18px] text-[#252B42] leading-[32px] font-bold"
+                className="text-[16px] text-[#252B42] leading-[32px] font-bold"
               >
                 Reset Password
               </button>

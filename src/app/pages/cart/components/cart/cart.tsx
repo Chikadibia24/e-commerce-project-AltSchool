@@ -8,10 +8,28 @@ import VisaCardLogo from "@/assets/images/visacard-logo.svg";
 import ItemDetailsCard from "./item-details-card";
 import MobileItemDetailsCard from "./mobile-item-details-card";
 import OrderSummaryDetails from "./order-summary-details";
+import { useRouter } from "next/navigation";
+import { getCurrentUser } from "@/app/utils/cart";
+
 
 
 
 export default function CartPage() {
+
+
+  
+  const router = useRouter();
+
+  const handleCheckout = () => {
+    const user = getCurrentUser();
+    if (!user) {
+      router.push('/login');
+      return;
+    }
+
+    // Proceed with checkout process
+    alert('Proceeding to checkout');
+  };
 
   
 
@@ -120,7 +138,11 @@ export default function CartPage() {
           </div>
 
           <div className="w-[385px] h-[124px] flex flex-col gap-[30px]">
-            <button className="w-[385px] h-[56px] flex items-center justify-center bg-[#23A6F0] rounded-[5px] text-[#ffffff] text-[16px] leading-6 font-bold">
+            <button
+              type="button"
+              onClick={handleCheckout}
+              className="w-[385px] h-[56px] flex items-center justify-center bg-[#23A6F0] rounded-[5px] text-[#ffffff] text-[16px] leading-6 font-bold"
+            >
               Proceed to Checkout
             </button>
 

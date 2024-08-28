@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { validateEmail, validatePassword } from "@/app/utils/validation";
 import { saveUserToLocalStorage, findUserByEmail } from "@/app/utils/auth";
+import Link from "next/link";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -28,14 +29,14 @@ const Register = () => {
     }
 
     saveUserToLocalStorage({ email, password });
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   return (
     <section className="w-[100%] flex justify-center items-center">
       <form
         onSubmit={handleRegister}
-        className="bg-[#fafafa] w-[380px] h-[450px] flex flex-col justify-center items-center gap-[30px] rounded-md shadow-xl hover:shadow-2xl"
+        className="bg-[#fafafa] w-[380px] h-[480px] flex flex-col justify-center items-center gap-[30px] rounded-md shadow-xl hover:shadow-2xl"
       >
         <h2 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
           Register
@@ -70,6 +71,35 @@ const Register = () => {
         >
           Register
         </button>
+
+        <div className="login-resetPassword flex flex-col gap-[4px]">
+          <div className="flex items-center gap-[10px]">
+            <p className="text-[13px] text-[#404040] leading-[16px] font-[500]">Already have an account?
+            </p>
+            <Link href={`/auth/login`}>
+              <button
+                type="button"
+                className="text-[16px] text-[#252B42] leading-[32px] font-bold"
+              >
+                Login
+              </button>
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-[10px]">
+            <p className="text-[13px] text-[#404040] leading-[16px] font-[500]">
+              Forgot Your password?
+            </p>
+            <Link href={`/auth/forgot-password`}>
+              <button
+                type="button"
+                className="text-[16px] text-[#252B42] leading-[32px] font-bold"
+              >
+                Reset Password
+              </button>
+            </Link>
+          </div>
+        </div>
       </form>
     </section>
   );
