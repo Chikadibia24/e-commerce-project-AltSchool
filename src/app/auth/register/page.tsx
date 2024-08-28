@@ -9,7 +9,7 @@ import Link from "next/link";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
+  const [errors, setErrors] = useState<{ email?: any; password?: any }>(
     {}
   );
   const router = useRouter();

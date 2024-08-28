@@ -9,8 +9,8 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [errors, setErrors] = useState<{
-    email?: string;
-    newPassword?: string;
+    email?: any;
+    newPassword?: any;
   }>({});
   const [successMessage, setSuccessMessage] = useState("");
 
