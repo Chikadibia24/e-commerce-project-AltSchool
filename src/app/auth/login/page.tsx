@@ -55,7 +55,7 @@ const LoginForm = () => {
     <section className="w-[100%] flex justify-center items-center">
       <form
         onSubmit={handleLogin}
-        className="bg-[#fafafa] w-[380px] h-[480px] flex flex-col justify-center items-center gap-[30px] rounded-md shadow-xl hover:shadow-2xl"
+        className="bg-[#fafafa] w-[380px] h-[520px] flex flex-col justify-center items-center gap-[30px] rounded-md shadow-xl hover:shadow-2xl"
       >
         <h2 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
           Login
