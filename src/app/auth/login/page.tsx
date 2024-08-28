@@ -5,9 +5,21 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { validateEmail } from "@/app/utils/validation";
 import { findUserByEmail } from "@/app/utils/auth";
 import Link from "next/link";
+import { Suspense } from "react";
+
 
 
 const Login = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <LoginForm />
+    </Suspense>
+  );
+};
+
+
+
+const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

@@ -39,7 +39,7 @@ const Register = () => {
         className="bg-[#fafafa] w-[380px] h-[480px] flex flex-col justify-center items-center gap-[30px] rounded-md shadow-xl hover:shadow-2xl"
       >
         <h2 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
-          Register
+          Create Account
         </h2>
         <div className="flex flex-col gap-[6px]">
           <label className="text-[18px] text-[#252B42] leading-[32px] font-bold">
