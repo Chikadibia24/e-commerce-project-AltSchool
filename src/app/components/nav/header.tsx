@@ -1,5 +1,7 @@
 import NavbarGreen from "./navbar-green";
 import NavbarLight from "./navbar-light";
+import MobileNav from "./mobile-nav";
+
 
 
 export default function Header() {
@@ -8,6 +10,8 @@ export default function Header() {
       <NavbarGreen />
 
       <NavbarLight/>
+
+      <MobileNav/>
     </header>
   );
 }

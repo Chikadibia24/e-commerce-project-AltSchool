@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
-
+import MobileNav from "./mobile-nav";
 
 import Image from "next/image";
-import userIcon from "/src/assets/images/user-icon.svg";
-import searchIcon from "/src/assets/images/search-icon.svg";
-import mobileViewSearchIcon from "/src/assets/images/mobile-view-search-icon.svg";
-import cartIcon from "/src/assets/images/cart-icon.svg";
-import mobileCartIcon from "/src/assets/images/mobile-cart-icon.svg";
-import favoriteIcon from "/src/assets/images/favorite-icon.svg";
-import threeDashIcon from "/src/assets/images/three-dash-icon.svg";
+import userIcon from "@/assets/images/user-icon.svg";
+import searchIcon from "@/assets/images/search-icon.svg";
+import mobileViewSearchIcon from "@/assets/images/mobile-view-search-icon.svg";
+import cartIcon from "@/assets/images/cart-icon.svg";
+import mobileCartIcon from "@/assets/images/mobile-cart-icon.svg";
+import favoriteIcon from "@/assets/images/favorite-icon.svg";
+import threeDashIcon from "@/assets/images/three-dash-icon.svg";
 
 
 
@@ -19,7 +19,7 @@ export default function NavbarLight() {
       className="navbar-light flex items-center
     justify-around lg:justify-between h-[58px] w-[98%] pl-[15px]"
     >
-      <div className="logo-container w-[187px] h-[58px] flex items-center">
+      <div className="logo-container w-[187px] h-[58px] hidden lg:flex items-center">
         <Link href="/">
           <h3 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
             Bandage
@@ -113,7 +113,7 @@ export default function NavbarLight() {
 
           <div className="social-icons flex items-center">
             <div className="w-[46px] h-[46px] flex items-center justify-center lg:justify-start">
-              <div className="mobile-search-icon flex items-center justify-center lg:hidden hover:cursor-pointer">
+              <div className="mobile-search-icon hidden items-center justify-center lg:hidden hover:cursor-pointer">
                 <Image src={mobileViewSearchIcon} alt="Search Icon" />
               </div>
 
@@ -123,7 +123,7 @@ export default function NavbarLight() {
             </div>
 
             <div className="w-[46px] h-[46px] flex items-center justify-center lg:justify-start">
-              <div className="mobile-cart-icon flex items-center justify-center lg:hidden">
+              <div className="mobile-cart-icon hidden items-center justify-center lg:hidden">
                 <Link href="/pages/cart">
                   <Image src={mobileCartIcon} alt="Cart Icon" />
                 </Link>
@@ -145,8 +145,11 @@ export default function NavbarLight() {
         </div>
       </div>
 
-      <div className="w-[46px] h-[46px] flex items-center lg:hidden">
-        <Image src={threeDashIcon} alt="Three Dash Icon" />
+      <div className="w-[46px] h-[46px] hidden items-center lg:hidden">
+        <button type="button">
+          <Image src={threeDashIcon} alt="Three Dash Icon" />
+        </button>
+        
       </div>
     </nav>
   );
