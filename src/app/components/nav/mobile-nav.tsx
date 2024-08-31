@@ -67,7 +67,7 @@ const MobileNav = () => {
       </div>
 
       <div
-        className={`mobile-nav-sub-container-1 w-[100%] h-[100vh] ${height} flex flex-col items-center gap-[20px] z-20 fixed top-0 pt-[27px] bg-white`}
+        className={`mobile-nav-sub-container-1 w-[100%] h-[100vh] ${height} flex flex-col items-center gap-[20px] z-20 fixed top-0 bg-white`}
       >
         <div className="logo-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
           <button
