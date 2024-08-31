@@ -3,6 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { getCurrentUser } from "../../utils/cart";
+
+
+
 
 import MobileUserIcon from "@/assets/images/mobile-user-icon.svg";
 import MobileSearchIcon from "@/assets/images/mobile-search-icon.svg";
@@ -14,6 +19,9 @@ import threeDashIcon from "@/assets/images/three-dash-icon.svg";
 
 const MobileNav = () => {
   const [height, setHeight] = useState("hidden");
+    const router = useRouter();
+
+
   const showDropDown = () => {
     if(height === "hidden"){
       setHeight("flex");
@@ -24,13 +32,29 @@ const MobileNav = () => {
     //setHeight(height === "0px"? "800px" : "0px");
   }
 
+  const handleMenuClick = (path:string) => {
+    router.push(path);
+    setHeight("hidden");
+  };
+
+  const handleGoToCart = (path: string) => {
+    const user = getCurrentUser();
+    if (!user) {
+      router.push("/auth/login");
+      setHeight("hidden");
+    } else if (user) {
+      router.push(path);
+      setHeight("hidden");
+    }
+  };
+
 
 
   return (
     <nav
-      className={`mobile-nav w-[414px] max-h-[950px] flex flex-col items-center z-10 fixed top-0 bg-white`}
+      className={`mobile-nav w-[100%] max-h-[950px] flex flex-col items-center z-10 fixed top-0 bg-white lg:hidden`}
     >
-      <div className="logo-3dash-container w-[414px] h-[100px] flex items-center justify-between px-[25px]">
+      <div className="logo-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
         <Link href="/">
           <h3 className="text-[30px] text-[#252B42] leading-[45px] font-bold">
             Bandage
@@ -43,14 +67,19 @@ const MobileNav = () => {
       </div>
 
       <div
-        className={`mobile-nav-sub-container-1 w-[414px] h-[100%] ${height} flex flex-col items-center gap-[30px] z-20 fixed top-0 bg-white`}
+        className={`mobile-nav-sub-container-1 w-[100%] h-[100%] ${height} flex flex-col items-center gap-[30px] z-20 fixed top-0 pt-[27px] bg-white`}
       >
-        <div className="logo-3dash-container w-[414px] h-[100px] flex items-center justify-between px-[25px]">
-          <Link href="/">
+        <div className="logo-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
+          <button
+            type="button"
+            onClick={() => {
+              handleMenuClick("/");
+            }}
+          >
             <h3 className="text-[30px] text-[#252B42] leading-[45px] font-bold">
               Bandage
             </h3>
-          </Link>
+          </button>
 
           <button type="button" onClick={showDropDown}>
             <Image src={threeDashIcon} alt="Three Dash Icon" />
@@ -58,86 +87,134 @@ const MobileNav = () => {
         </div>
 
         <div className="links-container w-[121px] h-[360px] flex flex-col items-center gap-[20px]">
-          <Link
-            href={`/`}
+          <button
+            type="button"
+            onClick={() => {
+              handleMenuClick("/");
+            }}
             className="text-[30px] text-[#252B42] text-center leading-[45px] font-[400]"
           >
             Home
-          </Link>
+          </button>
 
-          <Link
-            href={`/pages/product-details`}
+          <button
+            type="button"
+            onClick={() => {
+              handleMenuClick("/pages/product-details");
+            }}
             className="text-[30px] text-[#252B42] leading-[45px] font-[400]"
           >
             <select>
               <option>Shop</option>
             </select>
-          </Link>
+          </button>
 
-          <Link
-            href={`/pages/products`}
+          <button
+            type="button"
+            onClick={() => {
+              handleMenuClick("/pages/products");
+            }}
             className="text-[30px] text-[#252B42] text-center leading-[45px] font-[400]"
           >
             Products
-          </Link>
+          </button>
 
-          <Link
-            href={`/pages/blog`}
+          <button
+            type="button"
+            onClick={() => {
+              handleMenuClick("/pages/blog");
+            }}
             className="text-[30px] text-[#252B42] text-center leading-[45px] font-[400]"
           >
             Blog
-          </Link>
+          </button>
 
-          <Link
-            href={``}
+          <button
+            type="button"
+            onClick={() => {
+              handleMenuClick("");
+            }}
             className="text-[30px] text-[#252B42] text-center leading-[45px] font-[400]"
           >
             About
-          </Link>
+          </button>
 
-          <Link
-            href={``}
+          <button
+            type="button"
+            onClick={() => {
+              handleMenuClick("");
+            }}
             className="text-[30px] text-[#252B42] text-center leading-[45px] font-[400]"
           >
             Contact
-          </Link>
+          </button>
         </div>
 
         <div className="login-icons-container w-[310px] h-[265px] flex flex-col items-center gap-[25px]">
           <div className="login-register w-[310px] h-[60px] flex items-center justify-center gap-[12px]">
-            <Link href={``}>
+            <button
+              type="button"
+              onClick={() => {
+                handleMenuClick("");
+              }}
+            >
               <Image src={MobileUserIcon} alt="Mobile User Icon" />
-            </Link>
+            </button>
 
-            <Link href={`/auth/login`}>
+            <button
+              type="button"
+              onClick={() => {
+                handleMenuClick("/auth/login");
+              }}
+            >
               <h2 className="text-[30px] text-[#23A6F0] leading-[45px] font-[400]">
                 Login
               </h2>
-            </Link>
+            </button>
 
             <h2 className="text-[30px] text-[#23A6F0] leading-[45px] font-[400]">
               {"/"}
             </h2>
 
-            <Link href={`/auth/register`}>
+            <button
+              type="button"
+              onClick={() => {
+                handleMenuClick("/auth/register");
+              }}
+            >
               <h2 className="text-[30px] text-[#23A6F0] leading-[45px] font-[400]">
                 Register
               </h2>
-            </Link>
+            </button>
           </div>
 
           <div className="icons-container w-[310px] h-[180px] flex flex-col items-center gap-[30px]">
-            <Link href={``}>
+            <button
+              type="button"
+              onClick={() => {
+                handleMenuClick("");
+              }}
+            >
               <Image src={MobileSearchIcon} alt="Mobile Search Icon" />
-            </Link>
+            </button>
 
-            <Link href={`/pages/cart`}>
+            <button
+              type="button"
+              onClick={() => {
+                handleGoToCart("/pages/cart");
+              }}
+            >
               <Image src={MobileCartIcon} alt="Mobile Cart Icon" />
-            </Link>
+            </button>
 
-            <Link href={``}>
+            <button
+              type="button"
+              onClick={() => {
+                handleMenuClick("");
+              }}
+            >
               <Image src={MobileFavoriteIcon} alt="Mobile Favorite Icon" />
-            </Link>
+            </button>
           </div>
         </div>
       </div>

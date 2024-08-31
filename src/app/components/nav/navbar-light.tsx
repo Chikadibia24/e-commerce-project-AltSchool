@@ -1,6 +1,8 @@
 "use client";
+
 import Link from "next/link";
-import MobileNav from "./mobile-nav";
+import { useRouter } from "next/navigation";
+import { getCurrentUser } from "../../utils/cart";
 
 import Image from "next/image";
 import userIcon from "@/assets/images/user-icon.svg";
@@ -14,6 +16,23 @@ import threeDashIcon from "@/assets/images/three-dash-icon.svg";
 
 
 export default function NavbarLight() {
+
+  const router = useRouter();
+
+
+  const handleGoToCart = (path: string) => {
+    const user = getCurrentUser();
+    if (!user) {
+      alert(`Please Sign in to view cart`)
+      router.push("/auth/login");
+    } else if (user) {
+      router.push(path);
+    }
+  };
+
+
+
+
   return (
     <nav
       className="navbar-light flex items-center
@@ -130,9 +149,14 @@ export default function NavbarLight() {
               </div>
 
               <div className="desktop-cart-icon hidden items-center justify-center lg:flex">
-                <Link href="/pages/cart">
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleGoToCart("/pages/cart");
+                  }}
+                >
                   <Image src={cartIcon} alt="Cart Icon" />
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -149,7 +173,6 @@ export default function NavbarLight() {
         <button type="button">
           <Image src={threeDashIcon} alt="Three Dash Icon" />
         </button>
-        
       </div>
     </nav>
   );
