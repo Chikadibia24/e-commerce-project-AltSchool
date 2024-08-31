@@ -52,7 +52,7 @@ const MobileNav = () => {
 
   return (
     <nav
-      className={`mobile-nav w-[100%] max-h-[950px] flex flex-col items-center z-10 fixed top-0 bg-white lg:hidden`}
+      className={`mobile-nav w-[100%] flex flex-col items-center z-10 fixed top-0 bg-white lg:hidden`}
     >
       <div className="logo-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
         <Link href="/">
@@ -67,7 +67,7 @@ const MobileNav = () => {
       </div>
 
       <div
-        className={`mobile-nav-sub-container-1 w-[100%] h-[100%] ${height} flex flex-col items-center gap-[30px] z-20 fixed top-0 pt-[27px] bg-white`}
+        className={`mobile-nav-sub-container-1 w-[100%] h-[100vh] ${height} flex flex-col items-center gap-[20px] z-20 fixed top-0 pt-[27px] bg-white`}
       >
         <div className="logo-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
           <button
@@ -86,7 +86,7 @@ const MobileNav = () => {
           </button>
         </div>
 
-        <div className="links-container w-[121px] h-[360px] flex flex-col items-center gap-[20px]">
+        <div className="links-container w-[121px] h-[320px] flex flex-col items-center gap-[10px]">
           <button
             type="button"
             onClick={() => {
@@ -150,7 +150,7 @@ const MobileNav = () => {
           </button>
         </div>
 
-        <div className="login-icons-container w-[310px] h-[265px] flex flex-col items-center gap-[25px]">
+        <div className="login-icons-container w-[310px] h-[265px] flex flex-col items-center gap-[15px]">
           <div className="login-register w-[310px] h-[60px] flex items-center justify-center gap-[12px]">
             <button
               type="button"
