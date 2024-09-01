@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "../../utils/cart";
+import React, { useState, useEffect } from "react";
+
 
 import Image from "next/image";
 import userIcon from "@/assets/images/user-icon.svg";
@@ -16,6 +18,22 @@ import threeDashIcon from "@/assets/images/three-dash-icon.svg";
 
 
 export default function NavbarLight() {
+  const user = getCurrentUser();
+
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+
+  const checkUserLoginStatus = (): boolean => {
+    return !!user; // Returns true if user exists, otherwise false
+  };
+
+  useEffect(() => {
+    const loggedIn = checkUserLoginStatus();
+    setIsLoggedIn(loggedIn);
+  }, []);
+
+
+
+
 
   const router = useRouter();
 
@@ -111,23 +129,39 @@ export default function NavbarLight() {
               <Image src={userIcon} alt="User Icon" />
             </Link>
 
-            <Link
-              href="/auth/login"
-              className="text-[14px] text-[#23A6F0] leading-[24px] font-bold"
-            >
-              Login
-            </Link>
+            <div className="render-welcome-login-register flex items-center gap-[10px]">
+              {isLoggedIn ? (
+                <div
+                  className={`login-&-register-wrapper items-center gap-[10px] flex`}
+                >
+                  <p className="text-[18px] text-[#23A6F0] leading-[20px] font-bold">
+                    Welcome!
+                  </p>
+                </div>
+              ) : (
+                <div
+                  className={`login-&-register-wrapper items-center gap-[10px] flex`}
+                >
+                  <Link
+                    href="/auth/login"
+                    className="text-[14px] text-[#23A6F0] leading-[24px] font-bold"
+                  >
+                    Login
+                  </Link>
 
-            <p className="text-[16px] text-[#23A6F0] leading-[24px] font-bold">
-              /
-            </p>
+                  <p className="text-[16px] text-[#23A6F0] leading-[24px] font-bold">
+                    /
+                  </p>
 
-            <Link
-              href="/auth/register"
-              className="text-[14px] text-[#23A6F0] leading-[24px] font-bold"
-            >
-              Register
-            </Link>
+                  <Link
+                    href="/auth/register"
+                    className="text-[14px] text-[#23A6F0] leading-[24px] font-bold"
+                  >
+                    Register
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="social-icons flex items-center">

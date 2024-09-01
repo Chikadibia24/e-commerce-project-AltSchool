@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import React,{ useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { getCurrentUser } from "../../utils/cart";
 
@@ -21,15 +21,34 @@ import mobileViewSearchIcon from "@/assets/images/mobile-view-search-icon.svg";
 
 
 const MobileNav = () => {
-  const [height, setHeight] = useState("hidden");
-    const router = useRouter();
+  const [show, setShow] = useState<string>("hidden");
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const router = useRouter();
+  const user = getCurrentUser();
+
+
+  const checkUserLoginStatus = (): boolean => {
+    // Check if user is logged in
+    // if (user) {
+    //   return true;
+    // } else if (!user) {
+    //   return false;
+    // }
+    return !!user; // Returns true if user exists, otherwise false
+  };
+  
+
+  useEffect(() => {
+    const loggedIn = checkUserLoginStatus();
+    setIsLoggedIn(loggedIn);
+  }, []);
 
 
   const showDropDown = () => {
-    if(height === "hidden"){
-      setHeight("flex");
+    if(show === "hidden"){
+      setShow("flex");
     } else {
-      setHeight("hidden");
+      setShow("hidden");
     }
 
     //setHeight(height === "0px"? "800px" : "0px");
@@ -37,19 +56,26 @@ const MobileNav = () => {
 
   const handleMenuClick = (path:string) => {
     router.push(path);
-    setHeight("hidden");
+    setShow("hidden");
   };
 
   const handleGoToCart = (path: string) => {
-    const user = getCurrentUser();
     if (!user) {
       router.push("/auth/login");
-      setHeight("hidden");
+      setShow("hidden");
     } else if (user) {
       router.push(path);
-      setHeight("hidden");
+      setShow("hidden");
     }
   };
+
+  // const renderLoginRegister = () => {
+  //   if (user) {
+  //     setShow("hidden");
+  //   } else if (!user) {
+  //     setShow("flex");
+  //   }
+  // };
 
 
 
@@ -90,7 +116,7 @@ const MobileNav = () => {
       </div>
 
       <div
-        className={`mobile-nav-sub-container-1 w-[100%] h-[100vh] ${height} flex flex-col items-center gap-[20px] z-20 fixed top-0 bg-white`}
+        className={`mobile-nav-sub-container-1 w-[100%] h-[100vh] ${show} flex flex-col items-center gap-[20px] z-20 fixed top-0 bg-white`}
       >
         <div className="logo-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
           <button
@@ -173,8 +199,8 @@ const MobileNav = () => {
           </button>
         </div>
 
-        <div className="login-icons-container w-[310px] h-[265px] flex flex-col items-center gap-[15px]">
-          <div className="login-register w-[310px] h-[60px] flex items-center justify-center gap-[12px]">
+        <div className="login-&-icons-container w-[310px] h-[265px] flex flex-col items-center gap-[15px]">
+          <div className="user-icon-&-login-register-wrapper w-[310px] h-[60px] flex items-center justify-center gap-[15px]">
             <button
               type="button"
               onClick={() => {
@@ -184,31 +210,36 @@ const MobileNav = () => {
               <Image src={MobileUserIcon} alt="Mobile User Icon" />
             </button>
 
-            <button
-              type="button"
-              onClick={() => {
-                handleMenuClick("/auth/login");
-              }}
+            <div
+              className={`login-&-register-wrapper items-center gap-[12px] ${isLoggedIn ? "hidden" : "flex"
+              }`}
             >
-              <h2 className="text-[30px] text-[#23A6F0] leading-[45px] font-[400]">
-                Login
-              </h2>
-            </button>
+              <button
+                type="button"
+                onClick={() => {
+                  handleMenuClick("/auth/login");
+                }}
+              >
+                <h2 className="text-[30px] text-[#23A6F0] leading-[45px] font-[400]">
+                  Login
+                </h2>
+              </button>
 
-            <h2 className="text-[30px] text-[#23A6F0] leading-[45px] font-[400]">
-              {"/"}
-            </h2>
-
-            <button
-              type="button"
-              onClick={() => {
-                handleMenuClick("/auth/register");
-              }}
-            >
               <h2 className="text-[30px] text-[#23A6F0] leading-[45px] font-[400]">
-                Register
+                {"/"}
               </h2>
-            </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  handleMenuClick("/auth/register");
+                }}
+              >
+                <h2 className="text-[30px] text-[#23A6F0] leading-[45px] font-[400]">
+                  Register
+                </h2>
+              </button>
+            </div>
           </div>
 
           <div className="icons-container w-[310px] h-[180px] flex flex-col items-center gap-[30px]">
