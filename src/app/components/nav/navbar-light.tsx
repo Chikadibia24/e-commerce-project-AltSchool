@@ -20,7 +20,7 @@ import threeDashIcon from "@/assets/images/three-dash-icon.svg";
 export default function NavbarLight() {
   const router = useRouter();
   const user = getCurrentUser();
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
 
   const checkUserLoginStatus = (): boolean => {
     return !!user; // Returns true if user exists, otherwise false
@@ -29,7 +29,16 @@ export default function NavbarLight() {
   useEffect(() => {
     const loggedIn = checkUserLoginStatus();
     setIsLoggedIn(loggedIn);
+
+    // let reloadWindow = setTimeout(() => {
+       // setIsLoggedIn(loggedIn);
+    //   window.location.reload();
+    //   setIsLoggedIn(loggedIn);
+    // }, 0)
+    
+    // return () => clearTimeout(reloadWindow);
   }, []);
+
 
   const handleGoToCart = (path: string) => {
     const user = getCurrentUser();

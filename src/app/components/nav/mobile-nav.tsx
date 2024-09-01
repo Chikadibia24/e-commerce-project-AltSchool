@@ -7,8 +7,6 @@ import { useRouter } from "next/navigation";
 import {logOut, getCurrentUser } from "../../utils/cart";
 
 
-
-
 import MobileUserIcon from "@/assets/images/mobile-user-icon.svg";
 import MobileSearchIcon from "@/assets/images/mobile-search-icon.svg";
 import MobileCartIcon from "@/assets/images/mobile-cart-icon-sky-blue.svg";
@@ -19,43 +17,42 @@ import mobileViewSearchIcon from "@/assets/images/mobile-view-search-icon.svg";
 
 
 
-
 const MobileNav = () => {
   const [show, setShow] = useState<string>("hidden");
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const router = useRouter();
   const user = getCurrentUser();
 
-
   const checkUserLoginStatus = (): boolean => {
-    // Check if user is logged in
-    // if (user) {
-    //   return true;
-    // } else if (!user) {
-    //   return false;
-    // }
-    return !!user; // Returns true if user exists, otherwise false
+      return !!user; // Returns true if user exists in local storage
   };
-  
 
   useEffect(() => {
     const loggedIn = checkUserLoginStatus();
     setIsLoggedIn(loggedIn);
+    // window.location.reload();
+
+    // Force a re-render to apply the styles
+    //  setTimeout(() => {
+    //    window.location.reload();
+    //  },0);
   }, []);
+
+  
 
 
   const showDropDown = () => {
-    if(show === "hidden"){
-      setShow("flex");
-    } else {
+    if (show !== "hidden") {
       setShow("hidden");
+    } else {
+      setShow("flex");
     }
 
     //setHeight(height === "0px"? "800px" : "0px");
-  }
+  };
 
   //Handle Menu Click
-  const handleMenuClick = (path:string) => {
+  const handleMenuClick = (path: string) => {
     router.push(path);
     setShow("hidden");
   };
@@ -78,8 +75,7 @@ const MobileNav = () => {
     setIsLoggedIn(false);
     router.push("/");
     setShow("hidden");
-  }
-
+  };
 
   // const renderLoginRegister = () => {
   //   if (user) {
@@ -88,7 +84,6 @@ const MobileNav = () => {
   //     setShow("flex");
   //   }
   // };
-
 
   return (
     <nav

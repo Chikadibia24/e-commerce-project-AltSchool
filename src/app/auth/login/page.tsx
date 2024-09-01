@@ -9,6 +9,7 @@ import { Suspense } from "react";
 
 
 
+
 const Login = () => {
   return (
     <Suspense fallback={<p>Loading...</p>}>
@@ -45,11 +46,25 @@ const LoginForm = () => {
     localStorage.setItem("currentUser", JSON.stringify(user));
 
     if (redirectTo) {
-      alert("Logged In Successfully!")
+      //alert("Logged In Successfully!");
       router.push(redirectTo);
+      // window.location.reload();
+      //router.refresh();
+
+      // Force a re-render to apply the styles
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
     } else {
-      alert("Logged In Successfully!");
+      //alert("Logged In Successfully!");
       router.push("/");
+      // window.location.reload();
+      //router.refresh();
+
+      // Force a re-render to apply the styles
+       setTimeout(() => {
+         window.location.reload();
+       }, 1000);
     }
   };
 
