@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React,{ useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getCurrentUser } from "../../utils/cart";
+import {logOut, getCurrentUser } from "../../utils/cart";
 
 
 
@@ -54,11 +54,13 @@ const MobileNav = () => {
     //setHeight(height === "0px"? "800px" : "0px");
   }
 
+  //Handle Menu Click
   const handleMenuClick = (path:string) => {
     router.push(path);
     setShow("hidden");
   };
 
+  //Handle Go To Cart
   const handleGoToCart = (path: string) => {
     if (!user) {
       router.push("/auth/login");
@@ -68,6 +70,15 @@ const MobileNav = () => {
       setShow("hidden");
     }
   };
+
+  //Handle Logout
+  const handleLogOut = () => {
+    logOut();
+    setIsLoggedIn(false);
+    router.push("/");
+  }
+
+
 
   // const renderLoginRegister = () => {
   //   if (user) {
@@ -211,7 +222,8 @@ const MobileNav = () => {
             </button>
 
             <div
-              className={`login-&-register-wrapper items-center gap-[12px] ${isLoggedIn ? "hidden" : "flex"
+              className={`login-&-register-wrapper items-center gap-[12px] ${
+                isLoggedIn ? "hidden" : "flex"
               }`}
             >
               <button
@@ -242,7 +254,7 @@ const MobileNav = () => {
             </div>
           </div>
 
-          <div className="icons-container w-[310px] h-[180px] flex flex-col items-center gap-[30px]">
+          <div className="icons-logout-container w-[310px] h-[180px] flex flex-col items-center gap-[30px]">
             <button
               type="button"
               onClick={() => {
@@ -268,6 +280,15 @@ const MobileNav = () => {
               }}
             >
               <Image src={MobileFavoriteIcon} alt="Mobile Favorite Icon" />
+            </button>
+
+            <button
+              onClick={handleLogOut}
+              className={`${
+                isLoggedIn ? "flex" : "hidden"
+              } items-center justify-center text-[24px] text-[#ffffff] leading-[20px] font-[600] bg-[#23A6F0] px-[25px] py-[16px] rounded-[6px]`}
+            >
+              Logout
             </button>
           </div>
         </div>

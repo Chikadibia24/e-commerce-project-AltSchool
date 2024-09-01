@@ -1,6 +1,8 @@
 // utils/cart.ts
 
 import { User } from "./auth";
+// import { useRouter } from "next/navigation";
+
 
 export const addToCart = (productId: string) => {
   const user = getCurrentUser();
@@ -31,12 +33,17 @@ export const addToFavorites = (productId: string) => {
   );
 };
 
-// export const goToCart = () => {
-//   const user = getCurrentUser();
-//   if (!user) {
-//     throw new Error("User not authenticated");
-//   }
-// }
+
+export const logOut = () => {
+  const user = getCurrentUser();
+  // const router = useRouter();
+  if (user) {
+    localStorage.removeItem("currentUser");
+    alert("Logged Out Successfully");
+    // router.push("/");
+  }
+};
+
 
 export const getCurrentUser = (): User | null => {
   if (typeof window !== "undefined") {
@@ -45,3 +52,5 @@ export const getCurrentUser = (): User | null => {
   }
   return null;
 };
+
+

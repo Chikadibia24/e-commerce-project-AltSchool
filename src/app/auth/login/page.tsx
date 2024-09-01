@@ -45,8 +45,10 @@ const LoginForm = () => {
     localStorage.setItem("currentUser", JSON.stringify(user));
 
     if (redirectTo) {
+      alert("Logged In Successfully!")
       router.push(redirectTo);
     } else {
+      alert("Logged In Successfully!");
       router.push("/");
     }
   };

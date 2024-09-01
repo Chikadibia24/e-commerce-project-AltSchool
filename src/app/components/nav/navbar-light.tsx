@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { getCurrentUser } from "../../utils/cart";
+import {logOut , getCurrentUser } from "../../utils/cart";
 import React, { useState, useEffect } from "react";
 
 
@@ -18,8 +18,8 @@ import threeDashIcon from "@/assets/images/three-dash-icon.svg";
 
 
 export default function NavbarLight() {
+  const router = useRouter();
   const user = getCurrentUser();
-
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const checkUserLoginStatus = (): boolean => {
@@ -31,13 +31,6 @@ export default function NavbarLight() {
     setIsLoggedIn(loggedIn);
   }, []);
 
-
-
-
-
-  const router = useRouter();
-
-
   const handleGoToCart = (path: string) => {
     const user = getCurrentUser();
     if (!user) {
@@ -48,7 +41,11 @@ export default function NavbarLight() {
     }
   };
 
-
+  const handleLogOut = () => {
+    logOut();
+    setIsLoggedIn(false);
+    router.push("/");
+  }
 
 
   return (
@@ -123,20 +120,29 @@ export default function NavbarLight() {
           </div>
         </div>
 
-        <div className="login-register-social-icons flex items-center gap-[10px] lg:w-[324px] h-[54px]">
-          <div className="hidden items-center justify-end gap-[10px] w-[166px] h-[54px] lg:flex">
-            <Link href="">
-              <Image src={userIcon} alt="User Icon" />
-            </Link>
+        <div className="login-register-icons flex items-center gap-[2px] lg:w-[324px] h-[54px]">
+          <div className="userIcon-welcome-login-register-logout-wrapper hidden items-center justify-center gap-[2px] w-[210px] h-[54px] lg:flex">
+            <div className="user-icon w-[40px] h-[46px] flex items-center justify-center">
+              <Link href="">
+                <Image src={userIcon} alt="User Icon" />
+              </Link>
+            </div>
 
-            <div className="render-welcome-login-register flex items-center gap-[10px]">
+            <div className="render-welcome-login-register w-[155px] h-[46px] flex items-center justify-center gap-[10px]">
               {isLoggedIn ? (
                 <div
-                  className={`login-&-register-wrapper items-center gap-[10px] flex`}
+                  className={`welcome-&-logout-wrapper items-center gap-[5px] flex`}
                 >
-                  <p className="text-[18px] text-[#23A6F0] leading-[20px] font-bold">
+                  <p className="text-[19px] text-[#23A6F0] leading-[20px] font-[600]">
                     Welcome!
                   </p>
+
+                  <button
+                    onClick={handleLogOut}
+                    className="flex items-center justify-center text-[12px] text-[#ffffff] leading-[14px] font-[600] bg-[#23A6F0] px-[5px] py-[5px] rounded-[4px]"
+                  >
+                    Logout
+                  </button>
                 </div>
               ) : (
                 <div
@@ -144,18 +150,18 @@ export default function NavbarLight() {
                 >
                   <Link
                     href="/auth/login"
-                    className="text-[14px] text-[#23A6F0] leading-[24px] font-bold"
+                    className="text-[18px] text-[#23A6F0] leading-[24px] font-bold"
                   >
                     Login
                   </Link>
 
-                  <p className="text-[16px] text-[#23A6F0] leading-[24px] font-bold">
+                  <p className="text-[20px] text-[#23A6F0] leading-[24px] font-bold">
                     /
                   </p>
 
                   <Link
                     href="/auth/register"
-                    className="text-[14px] text-[#23A6F0] leading-[24px] font-bold"
+                    className="text-[18px] text-[#23A6F0] leading-[24px] font-bold"
                   >
                     Register
                   </Link>
@@ -164,8 +170,8 @@ export default function NavbarLight() {
             </div>
           </div>
 
-          <div className="social-icons flex items-center">
-            <div className="w-[46px] h-[46px] flex items-center justify-center lg:justify-start">
+          <div className="search-cart-favorite-icons flex items-center">
+            <div className="w-[40px] h-[46px] flex items-center justify-center lg:justify-start">
               <div className="mobile-search-icon hidden items-center justify-center lg:hidden hover:cursor-pointer">
                 <Image src={mobileViewSearchIcon} alt="Search Icon" />
               </div>
@@ -175,7 +181,7 @@ export default function NavbarLight() {
               </div>
             </div>
 
-            <div className="w-[46px] h-[46px] flex items-center justify-center lg:justify-start">
+            <div className="w-[33px] h-[46px] flex items-center justify-center">
               <div className="mobile-cart-icon hidden items-center justify-center lg:hidden">
                 <Link href="/pages/cart">
                   <Image src={mobileCartIcon} alt="Cart Icon" />
@@ -194,7 +200,7 @@ export default function NavbarLight() {
               </div>
             </div>
 
-            <div className="w-[46px] h-[46px] hidden items-center lg:flex">
+            <div className="w-[30px] h-[46px] hidden items-center justify-center lg:flex">
               <Link href="">
                 <Image src={favoriteIcon} alt="Favorite Icon" />
               </Link>
@@ -203,7 +209,7 @@ export default function NavbarLight() {
         </div>
       </div>
 
-      <div className="w-[46px] h-[46px] hidden items-center lg:hidden">
+      <div className="w-[46px] h-[46px] hidden items-center">
         <button type="button">
           <Image src={threeDashIcon} alt="Three Dash Icon" />
         </button>
