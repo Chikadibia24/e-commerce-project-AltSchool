@@ -14,6 +14,9 @@ import MobileSearchIcon from "@/assets/images/mobile-search-icon.svg";
 import MobileCartIcon from "@/assets/images/mobile-cart-icon-sky-blue.svg";
 import MobileFavoriteIcon from "@/assets/images/mobile-favorite-icon.svg";
 import threeDashIcon from "@/assets/images/three-dash-icon.svg";
+import mobileCartIcon from "@/assets/images/mobile-cart-icon.svg";
+import mobileViewSearchIcon from "@/assets/images/mobile-view-search-icon.svg";
+
 
 
 
@@ -54,16 +57,36 @@ const MobileNav = () => {
     <nav
       className={`mobile-nav w-[100%] flex flex-col items-center z-10 fixed top-0 bg-white lg:hidden`}
     >
-      <div className="logo-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
+      <div className="logo-search-cart-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
         <Link href="/">
           <h3 className="text-[30px] text-[#252B42] leading-[45px] font-bold">
             Bandage
           </h3>
         </Link>
 
-        <button type="button" onClick={showDropDown}>
-          <Image src={threeDashIcon} alt="Three Dash Icon" />
-        </button>
+        <div className="search-cart-3dash-icons flex items-center gap-[20px]">
+          <button
+            type="button"
+            onClick={() => {
+              handleMenuClick("");
+            }}
+          >
+            <Image src={mobileViewSearchIcon} alt="Search Icon" />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              handleGoToCart("/pages/cart");
+            }}
+          >
+            <Image src={mobileCartIcon} alt="Cart Icon" />
+          </button>
+
+          <button type="button" onClick={showDropDown}>
+            <Image src={threeDashIcon} alt="Three Dash Icon" />
+          </button>
+        </div>
       </div>
 
       <div
