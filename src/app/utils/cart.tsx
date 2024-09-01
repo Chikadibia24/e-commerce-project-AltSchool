@@ -40,7 +40,7 @@ export const logOut = () => {
   // const router = useRouter();
   if (user) {
     localStorage.removeItem("currentUser");
-    alert("Logged Out Successfully");
+    //alert("Logged Out Successfully");
     // router.push("/");
   }
 };
