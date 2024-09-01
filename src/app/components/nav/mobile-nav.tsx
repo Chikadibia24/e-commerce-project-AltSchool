@@ -63,6 +63,7 @@ const MobileNav = () => {
   //Handle Go To Cart
   const handleGoToCart = (path: string) => {
     if (!user) {
+      alert(`Please Sign in to view cart`);
       router.push("/auth/login");
       setShow("hidden");
     } else if (user) {
@@ -76,8 +77,8 @@ const MobileNav = () => {
     logOut();
     setIsLoggedIn(false);
     router.push("/");
+    setShow("hidden");
   }
-
 
 
   // const renderLoginRegister = () => {
@@ -87,7 +88,6 @@ const MobileNav = () => {
   //     setShow("flex");
   //   }
   // };
-
 
 
   return (
