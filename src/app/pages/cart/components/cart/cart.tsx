@@ -10,11 +10,35 @@ import MobileItemDetailsCard from "./mobile-item-details-card";
 import OrderSummaryDetails from "./order-summary-details";
 import { useRouter, usePathname } from "next/navigation";
 import { getCurrentUser } from "@/app/utils/cart";
+import { useContext } from "react";
+import { CountContext } from "@/context/index";
 
 
 
 
 export default function CartPage() {
+
+  const context = useContext(CountContext);
+
+  if (!context) {
+    throw new Error("CounterComponent must be used within a CountProvider");
+  }
+
+  const {
+    totalPriceCount,
+    itemOneCount,
+    priceOneCount,
+    incrementOne,
+    decrementOne,
+    itemTwoCount,
+    priceTwoCount,
+    incrementTwo,
+    decrementTwo,
+    itemThreeCount,
+    priceThreeCount,
+    incrementThree,
+    decrementThree,
+  } = context;
 
 
   
@@ -77,15 +101,45 @@ export default function CartPage() {
           </div>
 
           <div className="desktop-cards hidden lg:flex flex-col gap-[25px]">
-            <ItemDetailsCard />
-            <ItemDetailsCard />
-            <ItemDetailsCard />
+            <ItemDetailsCard
+              numberOfItems={itemOneCount}
+              onclickMinus={() => decrementOne()}
+              onclickAdd={() => incrementOne()}
+              itemCost={priceOneCount}
+            />
+            <ItemDetailsCard
+              numberOfItems={itemTwoCount}
+              onclickMinus={() => decrementTwo()}
+              onclickAdd={() => incrementTwo()}
+              itemCost={priceTwoCount}
+            />
+            <ItemDetailsCard
+              numberOfItems={itemThreeCount}
+              onclickMinus={() => decrementThree()}
+              onclickAdd={() => incrementThree()}
+              itemCost={priceThreeCount}
+            />
           </div>
 
           <div className="mobile-cards flex flex-col gap-[25px] lg:hidden">
-            <MobileItemDetailsCard />
-            <MobileItemDetailsCard />
-            <MobileItemDetailsCard />
+            <MobileItemDetailsCard
+              numberOfItems={itemOneCount}
+              onclickMinus={() => decrementOne()}
+              onclickAdd={() => incrementOne()}
+              itemCost={priceOneCount}
+            />
+            <MobileItemDetailsCard
+              numberOfItems={itemTwoCount}
+              onclickMinus={() => decrementTwo()}
+              onclickAdd={() => incrementTwo()}
+              itemCost={priceTwoCount}
+            />
+            <MobileItemDetailsCard
+              numberOfItems={itemThreeCount}
+              onclickMinus={() => decrementThree()}
+              onclickAdd={() => incrementThree()}
+              itemCost={priceThreeCount}
+            />
           </div>
         </div>
 
@@ -98,7 +152,7 @@ export default function CartPage() {
             </h3>
 
             <h3 className="text-[16px] text-[#121517] leading-[30px] font-[400]">
-              {`${4} Items`}
+              {`${3} Items`}
             </h3>
           </div>
 
@@ -116,7 +170,7 @@ export default function CartPage() {
             <OrderSummaryDetails
               height={``}
               text1={`Subtotal`}
-              text2={`${String.fromCharCode(8358)} 26,500`}
+              text2={`${String.fromCharCode(8358)} ${totalPriceCount}`}
               text1Style={`text-[#3A3C3E] text-[16px] leading-[23px]`}
               text2Style={`text-[#3A3C3E] text-[15px] leading-[22px] text-right`}
             />
@@ -126,7 +180,7 @@ export default function CartPage() {
             <OrderSummaryDetails
               height={``}
               text1={`Total`}
-              text2={`${String.fromCharCode(8358)} 26,500`}
+              text2={`${String.fromCharCode(8358)} ${totalPriceCount}`}
               text1Style={`text-[#121517] text-[20px] leading-[28px]`}
               text2Style={`text-[#121517] text-[20px] leading-[28px] text-right`}
             />

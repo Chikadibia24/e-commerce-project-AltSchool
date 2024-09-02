@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/nav/header";
 import Footer from "./components/footer/footer";
+import { CountProvider } from "@/context";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,13 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Header />
+      <CountProvider>
+        <body className={inter.className}>
+          <Header />
         
-        {children}
+          {children}
       
-        <Footer/>
-      </body>
+          <Footer/>
+        </body>
+      </CountProvider>
     </html>
   );
 }

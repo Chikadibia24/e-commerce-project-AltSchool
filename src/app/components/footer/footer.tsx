@@ -9,9 +9,7 @@ import twitterIcon from "@/assets/images/twitter-icon-footer.svg";
 export default function Footer() {
   return (
     <footer className="footer flex flex-col items-center h-[1342px] w-[100%] lg:h-[488px]">
-
       <div className="bandage-main-wrapper flex items-center lg:justify-center w-[321px] h-[173px] lg:w-[100%] lg:h-[142px]">
-
         <div className="bandage-sub-wrapper flex flex-col gap-[18px] lg:gap-[0] lg:items-center justify-between lg:flex-row w-[243px] h-[93px] lg:w-[1050px] lg:h-[138px] py-[40px]">
           <div className="w-[236px] h-[58px]">
             <Link href="/">
@@ -22,9 +20,21 @@ export default function Footer() {
           </div>
 
           <div className="flex lg:justify-center gap-[20px] w-[236px] h-[24px]">
-            <Image src={facebookIcon} alt="Facebook Icon" />
-            <Image src={instagramIcon} alt="Instagram Icon" />
-            <Image src={twitterIcon} alt="Twitter Icon" />
+            <Image
+              src={facebookIcon}
+              alt="Facebook Icon"
+              className="hover:cursor-pointer"
+            />
+            <Image
+              src={instagramIcon}
+              alt="Instagram Icon"
+              className="hover:cursor-pointer"
+            />
+            <Image
+              src={twitterIcon}
+              alt="Twitter Icon"
+              className="hover:cursor-pointer"
+            />
           </div>
         </div>
       </div>
@@ -32,7 +42,6 @@ export default function Footer() {
       <hr className="w-[390px] lg:w-[1057px] border-[#E6E6E6] border-[1px]" />
 
       <div className="footer-links-wrapper flex items-center justify-center w-[100%] h-[1071px] lg:h-[272px]">
-
         <div className="footer-links-sub-wrapper flex flex-col lg:flex-row gap-[30px] w-[321px] h-[1071px] lg:w-[1050px] lg:h-[270px] py-[50px]">
           <div className="flex flex-col w-[148px] h-[170px] gap-[20px]">
             <h5 className="text-[16px] text-[#252B42] leading-[24px] font-bold">

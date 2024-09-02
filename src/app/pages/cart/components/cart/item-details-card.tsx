@@ -5,9 +5,28 @@ import NairaSignOne from "@/assets/images/naira-sign.svg";
 import NairaSignTwo from "@/assets/images/naira-sign-2.svg";
 import DeleteIcon from "@/assets/images/delete-icon.svg";
 
+// import { useContext } from "react";
+// import {CountContext} from "@/context/index"
 
 
-export default function ItemDetailsCard() {
+export default function ItemDetailsCard({
+  numberOfItems,
+  onclickMinus,
+  onclickAdd,
+  itemCost}: {
+    numberOfItems: number;
+    onclickMinus: () => void;
+    onclickAdd: () => void;
+    itemCost: number
+}) {
+  // const context = useContext(CountContext);
+
+  // if (!context) {
+  //   throw new Error("CounterComponent must be used within a CountProvider");
+  // }
+
+  // const { itemOneCount, priceOneCount, incrementOne, decrementOne } = context;
+
   const AddMinusButton = ({
     text,
     styles,
@@ -16,12 +35,11 @@ export default function ItemDetailsCard() {
     styles: string;
   }) => {
     return (
-      <button
-        type="button"
+      <div
         className={`w-[28px] h-[28px] flex items-center justify-center rounded-full ${styles}`}
       >
         {text}
-      </button>
+      </div>
     );
   };
 
@@ -60,33 +78,45 @@ export default function ItemDetailsCard() {
         </div>
 
         <div className="sub-wrapper-2 w-[152px] h-[32px] flex items-center gap-[10px]">
-          <AddMinusButton
-            styles={`bg-[#E8EAEC] text-[22px] text-[#3A3C3E]`}
-            text={`-`}
-          />
+          <button
+            onClick={onclickMinus}
+            type="button"
+            className="flex items-center justify-center"
+          >
+            <AddMinusButton
+              styles={`bg-[#E8EAEC] text-[22px] text-[#3A3C3E]`}
+              text={`-`}
+            />
+          </button>
           <div className="w-[64px] h-[28px] flex items-center justify-center border border-[#3A3C3E] rounded-[4px]">
-            {1}
+            {numberOfItems}
           </div>
-          <AddMinusButton styles={`bg-[#23A6F0] text-[#FCFCFC]`} text={`+`} />
+          <button
+            onClick={onclickAdd}
+            type="button"
+            className="flex items-center justify-center"
+          >
+            <AddMinusButton styles={`bg-[#23A6F0] text-[#FCFCFC]`} text={`+`} />
+          </button>
         </div>
 
-        <div className="sub-wrapper-3 w-[90px] h-[47px]">
+        <div className="sub-wrapper-3 w-[110px] h-[47px]">
           <div className="w-[60px] h-[22px] flex items-center gap-[4px]">
             <Image src={NairaSignOne} alt="Naira Sign" />
             <p className="text-[16px] text-[#121517] leading-[22px] font-[500]">
-              3,000
+              {itemCost}
             </p>
           </div>
-          <div className="w-[90px] h-[24px] flex items-center gap-[4px]">
+          <div className="w-[110px] h-[24px] flex items-center gap-[4px]">
             <Image src={NairaSignTwo} alt="Naira Sign" />
-            <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
-              3,000
+            <p className="text-[9px] text-[#6C6C6C] leading-[14px] font-[400]">
+              {itemCost}
             </p>
-            <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
+            <p className="text-[9px] text-[#6C6C6C] leading-[14px] font-[400]">
               {`x`}
             </p>
-            <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
-              {`${1} item`}
+            <p className="text-[9px] text-[#6C6C6C] leading-[14px] font-[400]">
+              {`${numberOfItems} item(s)`}
             </p>
           </div>
         </div>

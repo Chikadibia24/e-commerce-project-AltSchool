@@ -37,10 +37,26 @@ export default function NavbarGreen() {
         </div>
 
         <div className="flex gap-[5px] w-[120px] h-[26px] items-center">
-          <Image src={instagramIcon} alt="InstagramIcon" />
-          <Image src={youtubeIcon} alt="YoutubeIcon" />
-          <Image src={facebookIcon} alt="FacebookIcon" />
-          <Image src={twitterIcon} alt="TwitterIcon" />
+          <Image
+            src={instagramIcon}
+            alt="InstagramIcon"
+            className="hover:cursor-pointer"
+          />
+          <Image
+            src={youtubeIcon}
+            alt="YoutubeIcon"
+            className="hover:cursor-pointer"
+          />
+          <Image
+            src={facebookIcon}
+            alt="FacebookIcon"
+            className="hover:cursor-pointer"
+          />
+          <Image
+            src={twitterIcon}
+            alt="TwitterIcon"
+            className="hover:cursor-pointer"
+          />
         </div>
       </div>
     </nav>

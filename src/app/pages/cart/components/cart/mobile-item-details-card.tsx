@@ -7,8 +7,18 @@ import DeleteIcon from "@/assets/images/delete-icon.svg";
 
 
 
-export default function MobileItemDetailsCard() {
-
+export default function MobileItemDetailsCard({
+  numberOfItems,
+  onclickMinus,
+  onclickAdd,
+  itemCost,
+}: {
+  numberOfItems: number;
+  onclickMinus: () => void;
+  onclickAdd: () => void;
+  itemCost: number;
+  }) {
+  
   const AddMinusButton = ({
     text,
     styles,
@@ -17,17 +27,13 @@ export default function MobileItemDetailsCard() {
     styles: string;
   }) => {
     return (
-      <button
-        type="button"
+      <div
         className={`w-[28px] h-[28px] flex items-center justify-center rounded-full ${styles}`}
       >
         {text}
-      </button>
+      </div>
     );
   };
-
-
-
 
   return (
     <div className="main-wrapper w-[385px] flex flex-col gap-[15px] pb-[20px] border-b border-b-[#DCDCDC]">
@@ -36,30 +42,30 @@ export default function MobileItemDetailsCard() {
           <Image src={DinningChair} alt="Dinning Chair Product" />
         </div>
 
-        <div className="sub-wrapper-1-2 w-[200px] h-[103px] flex flex-col gap-[8px]">
-          <div className=" w-[200px] h-[77px] flex flex-col gap-[6px]">
+        <div className="sub-wrapper-1-2 w-[230px] h-[103px] flex flex-col gap-[8px]">
+          <div className=" w-[230px] h-[77px] flex flex-col gap-[6px]">
             <p className="text-[18px] text-[#2B2B2B] leading-[23px] font-[500]">
               Graphic Design
             </p>
 
-            <div className="flex w-[180px] gap-[10px]">
-              <div className="w-[60px] h-[22px] flex items-center gap-[4px]">
+            <div className="flex w-[220px] gap-[10px]">
+              <div className="w-[75px] h-[22px] flex items-center gap-[4px]">
                 <Image src={NairaSignOne} alt="Naira Sign" />
                 <p className="text-[14px] text-[#121517] leading-[20px] font-[500]">
-                  3,000
+                  {itemCost}
                 </p>
               </div>
 
-              <div className="w-[90px] h-[24px] flex items-center gap-[4px]">
+              <div className="w-[135px] h-[24px] flex items-center gap-[4px]">
                 <Image src={NairaSignTwo} alt="Naira Sign" />
                 <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
-                  3,000
+                  {itemCost}
                 </p>
                 <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
                   {`x`}
                 </p>
                 <p className="text-[10px] text-[#6C6C6C] leading-[14px] font-[400]">
-                  {`${1} item`}
+                  {`${numberOfItems} item(s)`}
                 </p>
               </div>
             </div>
@@ -98,14 +104,26 @@ export default function MobileItemDetailsCard() {
         </button>
 
         <div className="sub-wrapper-2 w-[142px] h-[32px] flex items-center gap-[10px]">
-          <AddMinusButton
-            styles={`bg-[#E8EAEC] text-[22px] text-[#3A3C3E]`}
-            text={`-`}
-          />
+          <button
+            onClick={onclickMinus}
+            type="button"
+            className="flex items-center justify-center"
+          >
+            <AddMinusButton
+              styles={`bg-[#E8EAEC] text-[22px] text-[#3A3C3E]`}
+              text={`-`}
+            />
+          </button>
           <div className="w-[64px] h-[28px] flex items-center justify-center border border-[#3A3C3E] rounded-[4px]">
-            {1}
+            {numberOfItems}
           </div>
-          <AddMinusButton styles={`bg-[#23A6F0] text-[#FCFCFC]`} text={`+`} />
+          <button
+            onClick={onclickAdd}
+            type="button"
+            className="flex items-center justify-center"
+          >
+            <AddMinusButton styles={`bg-[#23A6F0] text-[#FCFCFC]`} text={`+`} />
+          </button>
         </div>
       </div>
     </div>
