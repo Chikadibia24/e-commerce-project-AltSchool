@@ -10,10 +10,12 @@ import ClientSixLogo from "/src/assets/images/client-6.svg";
 
 export default function Clients() {
   
-  function ClientsLogo({image}:{image:string}) {
+  function ClientsLogo({ image, style }: { image: string; style: string; }) {
     return (
-      <div className="clients-scroll w-[153px] h-[130px] flex items-center justify-center">
-        <Image src={image} alt="Client Logo" />
+      <div
+        className={`w-[153px] h-[130px] flex items-center justify-center`}
+      >
+        <Image src={image} alt="Client Logo" className={`${style}`} />
       </div>
     );
   }
@@ -23,24 +25,24 @@ export default function Clients() {
   return (
     <section className="clients-carousel-section w-[100%] h-[150px] flex items-center justify-center">
       {/* Main Wrapper */}
-      <div className="main-wrapper w-[100%] h-[140px] flex justify-center items-center gap-[20px] lg:gap-[30px] py-[10px] lg:px-[10px] lg:py-[50px]">
+      <div className="main-wrapper clients-horizontal-scroll w-[100%] h-[140px] flex justify-center items-center gap-[20px] lg:gap-[30px] py-[10px] px-[10px] lg:px-[10px] lg:py-[50px]">
         {/* Sub Wrapper - 1 */}
-        <ClientsLogo image={ClientOneLogo} />
+        <ClientsLogo image={ClientOneLogo} style={`zoomHooli`} />
 
         {/* Sub Wrapper - 2 */}
-        <ClientsLogo image={ClientTwoLogo} />
+        <ClientsLogo image={ClientTwoLogo} style={`flipLift`} />
 
         {/* Sub Wrapper - 3 */}
-        <ClientsLogo image={ClientThreeLogo} />
+        <ClientsLogo image={ClientThreeLogo} style={`upAndDown`} />
 
         {/* Sub Wrapper - 4 */}
-        <ClientsLogo image={ClientFourLogo} />
+        <ClientsLogo image={ClientFourLogo} style={`zoomStripe`} />
 
         {/* Sub Wrapper - 5 */}
-        <ClientsLogo image={ClientFiveLogo} />
+        <ClientsLogo image={ClientFiveLogo} style={`flipAmazon`} />
 
         {/* Sub Wrapper - 6 */}
-        <ClientsLogo image={ClientSixLogo} />
+        <ClientsLogo image={ClientSixLogo} style={`rotate`} />
       </div>
     </section>
   );
