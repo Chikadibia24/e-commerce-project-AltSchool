@@ -12,18 +12,18 @@ export default function Clients() {
   
   function ClientsLogo({image}:{image:string}) {
     return (
-      <div className="w-[153px] h-[144px] flex items-center justify-center">
+      <div className="clients-scroll w-[153px] h-[130px] flex items-center justify-center">
         <Image src={image} alt="Client Logo" />
       </div>
-    )
+    );
   }
 
 
 
   return (
-    <section className="clients-carousel-section w-[100%] h-[1173px] lg:h-[175px] flex items-center justify-center">
+    <section className="clients-carousel-section w-[100%] h-[150px] flex items-center justify-center">
       {/* Main Wrapper */}
-      <div className="main-wrapper w-[414px] h-[952px] lg:w-[1054px] lg:h-[175px] flex flex-col lg:flex-row items-center gap-[60px] lg:gap-[30px] py-[50px]">
+      <div className="main-wrapper w-[100%] h-[140px] flex justify-center items-center gap-[20px] lg:gap-[30px] py-[10px] lg:px-[10px] lg:py-[50px]">
         {/* Sub Wrapper - 1 */}
         <ClientsLogo image={ClientOneLogo} />
 

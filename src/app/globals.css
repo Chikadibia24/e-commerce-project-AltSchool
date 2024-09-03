@@ -53,6 +53,26 @@ body {
   top: 0;
 }
 
+
+
+.clients-scroll{
+  animation-name: horizontal-scroll;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes horizontal-scroll {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 /* .cta-h1{
   font-size: 100px;
 } */
