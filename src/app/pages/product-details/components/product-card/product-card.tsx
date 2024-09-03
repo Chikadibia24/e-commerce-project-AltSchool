@@ -189,7 +189,7 @@ export default function ProductCard({ productId }: { productId: string }) {
               Availability :
             </h6>
 
-            <h6 className="text-[14px] leading-6 text-[#23A6F0] font-bold">
+            <h6 className="text-[14px] leading-6 text-[#2BA501] font-bold">
               In Stock
             </h6>
           </div>
