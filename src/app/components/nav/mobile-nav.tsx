@@ -4,7 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import React,{ useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import {logOut, getCurrentUser } from "../../utils/cart";
+import { logOut, getCurrentUser } from "../../utils/cart";
+import { useContext } from "react";
+import { CountContext } from "@/context/index";
 
 
 import MobileUserIcon from "@/assets/images/mobile-user-icon.svg";
@@ -18,6 +20,17 @@ import mobileViewSearchIcon from "@/assets/images/mobile-view-search-icon.svg";
 
 
 const MobileNav = () => {
+
+
+  const context = useContext(CountContext);
+
+  if (!context) {
+    throw new Error("CounterComponent must be used within a CountProvider");
+  }
+
+  const { cartItemsCount } = context;
+
+
   const [show, setShow] = useState<string>("hidden");
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const router = useRouter();
@@ -111,8 +124,12 @@ const MobileNav = () => {
             onClick={() => {
               handleGoToCart("/pages/cart");
             }}
+            className="relative"
           >
             <Image src={mobileCartIcon} alt="Cart Icon" />
+            <span className="flex items-center justify-center text-[12px] text-[#252B42] font-bold w-[16px] h-[16px] rounded-full border border-[#252B42] absolute bottom-[16px] left-[16px]">
+              {cartItemsCount}
+            </span>
           </button>
 
           <button type="button" onClick={showDropDown}>
@@ -264,8 +281,12 @@ const MobileNav = () => {
               onClick={() => {
                 handleGoToCart("/pages/cart");
               }}
+              className="relative"
             >
               <Image src={MobileCartIcon} alt="Mobile Cart Icon" />
+              <span className="flex items-center justify-center text-[12px] text-[#252B42] font-bold absolute bottom-[12px] right-[12px]">
+                {cartItemsCount}
+              </span>
             </button>
 
             <button

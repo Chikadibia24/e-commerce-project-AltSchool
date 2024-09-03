@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {logOut , getCurrentUser } from "../../utils/cart";
 import React, { useState, useEffect } from "react";
+import { useContext } from "react";
+import { CountContext } from "@/context/index";
 
 
 import Image from "next/image";
@@ -18,6 +20,16 @@ import threeDashIcon from "@/assets/images/three-dash-icon.svg";
 
 
 export default function NavbarLight() {
+
+  const context = useContext(CountContext);
+
+  if (!context) {
+    throw new Error("CounterComponent must be used within a CountProvider");
+  }
+
+  const {cartItemsCount } = context;
+
+
   const router = useRouter();
   const user = getCurrentUser();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
@@ -197,7 +209,7 @@ export default function NavbarLight() {
                 </Link>
               </div>
 
-              <div className="desktop-cart-icon hidden items-center justify-center lg:flex">
+              <div className="desktop-cart-icon relative hidden items-center justify-center lg:flex">
                 <button
                   type="button"
                   onClick={() => {
@@ -206,6 +218,9 @@ export default function NavbarLight() {
                 >
                   <Image src={cartIcon} alt="Cart Icon" />
                 </button>
+                <span className="flex items-center justify-center text-[12px] text-[#252B42] font-bold w-[14px] h-[14px] rounded-full border border-[#23A6F0] absolute bottom-[10px] left-[10px] z-[1]">
+                  {cartItemsCount}
+                </span>
               </div>
             </div>
 

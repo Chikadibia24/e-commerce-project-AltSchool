@@ -11,6 +11,9 @@ interface CountContextType {
   priceTwoCount: number;
   priceThreeCount: number;
   totalPriceCount: number;
+  cartItemsCount: number;
+  incrementCartItems: () => void;
+  //decrementCartItems: () => void;
   incrementOne: () => void;
   decrementOne: () => void;
   incrementTwo: () => void;
@@ -31,6 +34,7 @@ export const CountProvider = ({ children }: { children: ReactNode }) => {
   const [priceTwoCount, setPriceTwoCount] = useState<number>(3000);
   const [priceThreeCount, setPriceThreeCount] = useState<number>(3000);
   const [totalPriceCount, setTotalPriceCount] = useState<number>(9000);
+  const [cartItemsCount, setCartItemsCount] = useState<number>(3)
 
   //First Item Increment and Decrement functions
   const incrementOne = () => {
@@ -95,6 +99,19 @@ export const CountProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
+
+  // Increment cart items count
+  const incrementCartItems = () => {
+    setCartItemsCount((prevCount) => prevCount + 1);
+  };
+
+  // Decrement cart items count
+  // const decrementCartItems = () => {
+  //   setCartItemsCount((prevCount) => prevCount > 0? prevCount - 1 : prevCount);
+  // };
+  
+
+
   return (
     <CountContext.Provider
       value={{
@@ -111,6 +128,8 @@ export const CountProvider = ({ children }: { children: ReactNode }) => {
         priceThreeCount,
         incrementThree,
         decrementThree,
+        cartItemsCount,
+        incrementCartItems,
       }}
     >
       {children}

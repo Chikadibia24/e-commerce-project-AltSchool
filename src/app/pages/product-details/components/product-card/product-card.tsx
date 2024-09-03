@@ -15,10 +15,23 @@ import ProductCardEyeIcon from "@/assets/images/product-card-eye-icon.svg";
 import { useState } from 'react';
 import { useRouter, usePathname } from "next/navigation";
 import { addToCart, addToFavorites, getCurrentUser } from "@/app/utils/cart";
+import { useContext } from "react";
+import { CountContext } from "@/context/index";
 
 
 
 export default function ProductCard({ productId }: { productId: string }) {
+
+
+  const context = useContext(CountContext);
+
+  if (!context) {
+    throw new Error("CounterComponent must be used within a CountProvider");
+  }
+
+  const { cartItemsCount, incrementCartItems } = context;
+
+
 
   const router = useRouter();
   const pathname = usePathname();
@@ -27,6 +40,7 @@ export default function ProductCard({ productId }: { productId: string }) {
   const handleAddToCart = () => {
     try {
       addToCart(productId);
+      incrementCartItems();
       alert('Product added to cart');
     } catch (err:any) {
       setError(err.message);
@@ -71,10 +85,30 @@ export default function ProductCard({ productId }: { productId: string }) {
     };
 
 
-  function ProductActionsBg({ image, altText, onclick }: { image: string; altText: string; onclick: any}) {
+  function ProductActionsBg({
+    image,
+    altText,
+    onclick,
+    //cartItemNumber,
+    cartItemNumberDisplay,
+  }: {
+      image: string;
+      altText: string;
+      onclick: any;
+      //cartItemNumber: number;
+      cartItemNumberDisplay: string;
+  }) {
     return (
-      <button className="w-[44px] h-[44px] flex items-center justify-center border border-[#E8E8E8] rounded-full" onClick={(para)=>onclick(para)}>
-        <Image src={image} alt={altText}/>
+      <button
+        className="w-[44px] h-[44px] flex items-center justify-center border border-[#E8E8E8] rounded-full relative"
+        onClick={(para) => onclick(para)}
+      >
+        <Image src={image} alt={altText} />
+        <span
+          className={`${cartItemNumberDisplay} text-[12px] text-[#252B42] font-bold absolute bottom-[26px] right-[16px] z-[1]`}
+        >
+          {cartItemsCount}
+        </span>
       </button>
     );
   }
@@ -190,16 +224,19 @@ export default function ProductCard({ productId }: { productId: string }) {
               onclick={handleAddToFavorites}
               image={ProductCardFavoriteIcon}
               altText={`Product Card Favorite Icon`}
+              cartItemNumberDisplay={"hidden"}
             />
             <ProductActionsBg
               onclick={handleGoToCart}
               image={ProductCardCartIcon}
               altText={`Product Card Cart Icon`}
+              cartItemNumberDisplay={"block"}
             />
             <ProductActionsBg
               onclick={() => handleClick("")}
               image={ProductCardEyeIcon}
               altText={`Product Card Eye Icon`}
+              cartItemNumberDisplay={"hidden"}
             />
           </div>
 
