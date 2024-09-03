@@ -12,7 +12,7 @@ import ProductCardFavoriteIcon from "@/assets/images/product-card-favorite-icon.
 import ProductCardCartIcon from "@/assets/images/product-card-cart-icon.svg";
 import ProductCardEyeIcon from "@/assets/images/product-card-eye-icon.svg";
 
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 import { useRouter, usePathname } from "next/navigation";
 import { addToCart, addToFavorites, getCurrentUser } from "@/app/utils/cart";
 import { useContext } from "react";
@@ -32,10 +32,22 @@ export default function ProductCard({ productId }: { productId: string }) {
   const { cartItemsCount, incrementCartItems } = context;
 
 
-
+  const user = getCurrentUser();
   const router = useRouter();
   const pathname = usePathname();
   const [error, setError] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+
+
+  const checkUserLoginStatus = (): boolean => {
+    return !!user; // Returns true if user exists in local storage
+  };
+
+  useEffect(() => {
+    const loggedIn = checkUserLoginStatus();
+    setIsLoggedIn(loggedIn);
+  }, []);
+
 
   const handleAddToCart = () => {
     try {
@@ -62,7 +74,6 @@ export default function ProductCard({ productId }: { productId: string }) {
   
 
   const handleGoToCart = () => {
-    const user = getCurrentUser();
     if (!user) {
       alert("User not authenticated!");
       router.push(`/auth/login?redirectTo=${encodeURIComponent(pathname)}`);
@@ -89,18 +100,18 @@ export default function ProductCard({ productId }: { productId: string }) {
     image,
     altText,
     onclick,
-    //cartItemNumber,
+    appearDisappear,
     cartItemNumberDisplay,
   }: {
       image: string;
       altText: string;
       onclick: any;
-      //cartItemNumber: number;
+      appearDisappear: string;
       cartItemNumberDisplay: string;
   }) {
     return (
       <button
-        className="w-[44px] h-[44px] flex items-center justify-center border border-[#E8E8E8] rounded-full relative"
+        className={`w-[44px] h-[44px] flex items-center justify-center border border-[#E8E8E8] rounded-full relative ${appearDisappear}`}
         onClick={(para) => onclick(para)}
       >
         <Image src={image} alt={altText} />
@@ -225,18 +236,21 @@ export default function ProductCard({ productId }: { productId: string }) {
               image={ProductCardFavoriteIcon}
               altText={`Product Card Favorite Icon`}
               cartItemNumberDisplay={"hidden"}
+              appearDisappear={``}
             />
             <ProductActionsBg
               onclick={handleGoToCart}
               image={ProductCardCartIcon}
               altText={`Product Card Cart Icon`}
               cartItemNumberDisplay={"block"}
+              appearDisappear={`${isLoggedIn ? "flex" : "hidden"}`}
             />
             <ProductActionsBg
               onclick={() => handleClick("")}
               image={ProductCardEyeIcon}
               altText={`Product Card Eye Icon`}
               cartItemNumberDisplay={"hidden"}
+              appearDisappear={``}
             />
           </div>
 

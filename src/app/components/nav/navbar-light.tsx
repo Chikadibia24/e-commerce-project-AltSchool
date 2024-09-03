@@ -143,7 +143,11 @@ export default function NavbarLight() {
 
         <div className="login-register-icons flex items-center gap-[2px] lg:w-[324px] h-[54px]">
           <div className="userIcon-welcome-login-register-logout-wrapper hidden items-center justify-center gap-[2px] w-[210px] h-[54px] lg:flex">
-            <div className="user-icon w-[40px] h-[46px] flex items-center justify-center">
+            <div
+              className={`user-icon w-[40px] h-[46px] items-center justify-center ${
+                isLoggedIn ? "flex" : "hidden"
+              }`}
+            >
               <Link href="">
                 <Image src={userIcon} alt="User Icon" />
               </Link>
@@ -193,23 +197,17 @@ export default function NavbarLight() {
 
           <div className="search-cart-favorite-icons flex items-center">
             <div className="w-[40px] h-[46px] flex items-center justify-center lg:justify-start">
-              <div className="mobile-search-icon hidden items-center justify-center lg:hidden hover:cursor-pointer">
-                <Image src={mobileViewSearchIcon} alt="Search Icon" />
-              </div>
-
               <div className="desktop-search-icon  items-center justify-center hidden lg:flex hover:cursor-pointer">
                 <Image src={searchIcon} alt="Search Icon" />
               </div>
             </div>
 
             <div className="w-[33px] h-[46px] flex items-center justify-center">
-              <div className="mobile-cart-icon hidden items-center justify-center lg:hidden">
-                <Link href="/pages/cart">
-                  <Image src={mobileCartIcon} alt="Cart Icon" />
-                </Link>
-              </div>
-
-              <div className="desktop-cart-icon relative hidden items-center justify-center lg:flex">
+              <div
+                className={`desktop-cart-icon relative hidden items-center justify-center ${
+                  isLoggedIn ? "lg:flex" : "hidden"
+                }`}
+              >
                 <button
                   type="button"
                   onClick={() => {
@@ -224,7 +222,11 @@ export default function NavbarLight() {
               </div>
             </div>
 
-            <div className="w-[30px] h-[46px] hidden items-center justify-center lg:flex">
+            <div
+              className={`w-[30px] h-[46px] hidden items-center justify-center ${
+                isLoggedIn ? "lg:flex" : "hidden"
+              }`}
+            >
               <Link href="">
                 <Image src={favoriteIcon} alt="Favorite Icon" />
               </Link>

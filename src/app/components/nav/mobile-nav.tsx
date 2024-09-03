@@ -124,7 +124,9 @@ const MobileNav = () => {
             onClick={() => {
               handleGoToCart("/pages/cart");
             }}
-            className="relative"
+            className={`${
+              isLoggedIn ? "flex" : "hidden"
+            } items-center justify-center relative`}
           >
             <Image src={mobileCartIcon} alt="Cart Icon" />
             <span className="flex items-center justify-center text-[12px] text-[#252B42] font-bold w-[16px] h-[16px] rounded-full border border-[#252B42] absolute bottom-[16px] left-[16px]">
@@ -229,6 +231,9 @@ const MobileNav = () => {
               onClick={() => {
                 handleMenuClick("");
               }}
+              className={`${
+                isLoggedIn ? "flex" : "hidden"
+              } items-center justify-center`}
             >
               <Image src={MobileUserIcon} alt="Mobile User Icon" />
             </button>
@@ -281,7 +286,9 @@ const MobileNav = () => {
               onClick={() => {
                 handleGoToCart("/pages/cart");
               }}
-              className="relative"
+              className={`${
+                isLoggedIn ? "flex" : "hidden"
+              } items-center justify-center relative`}
             >
               <Image src={MobileCartIcon} alt="Mobile Cart Icon" />
               <span className="flex items-center justify-center text-[12px] text-[#252B42] font-bold absolute bottom-[12px] right-[12px]">
@@ -294,6 +301,9 @@ const MobileNav = () => {
               onClick={() => {
                 handleMenuClick("");
               }}
+              className={`${
+                isLoggedIn ? "flex" : "hidden"
+              } items-center justify-center`}
             >
               <Image src={MobileFavoriteIcon} alt="Mobile Favorite Icon" />
             </button>
