@@ -8,7 +8,7 @@ import { User } from "./auth";
 export const addToCart = (productId: string) => {
   const user = getCurrentUser();
   if (!user) {
-    throw new Error("User not authenticated");
+    throw new Error("Login To Add Item to Cart");
   }
 
   let cart = localStorage.getItem(`cart_${user.email}`);
@@ -21,7 +21,7 @@ export const addToCart = (productId: string) => {
 export const addToFavorites = (productId: string) => {
   const user = getCurrentUser();
   if (!user) {
-    throw new Error("User not authenticated");
+    throw new Error("Login To View Your Favorite Items");
   }
 
   let favorites = localStorage.getItem(`favorites_${user.email}`);
