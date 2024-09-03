@@ -102,7 +102,7 @@ const MobileNav = () => {
     <nav
       className={`mobile-nav w-[100%] flex flex-col items-center z-10 fixed top-0 bg-white lg:hidden`}
     >
-      <div className="logo-search-cart-3dash-container w-[100%] h-[100px] flex items-center justify-between px-[25px]">
+      <div className="logo-search-cart-3dash-container w-[100%] h-[80px] flex items-center justify-between px-[25px]">
         <Link href="/">
           <h3 className="text-[30px] text-[#252B42] leading-[45px] font-bold">
             Bandage

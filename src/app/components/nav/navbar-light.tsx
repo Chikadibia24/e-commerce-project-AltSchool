@@ -71,10 +71,10 @@ export default function NavbarLight() {
 
   return (
     <nav
-      className="navbar-light flex items-center
-    justify-around lg:justify-between h-[58px] w-[98%] pl-[15px]"
+      className="navbar-light hidden lg:flex items-center
+    justify-around lg:justify-between h-[58px] w-[100%] pl-[35px] pr-[20px] sticky top-[0] mt-[10px] z-[100] bg-white"
     >
-      <div className="logo-container w-[187px] h-[58px] hidden lg:flex items-center">
+      <div className="logo-container w-[187px] h-[58px] flex items-center">
         <Link href="/">
           <h3 className="text-[24px] text-[#252B42] leading-[32px] font-bold">
             Bandage

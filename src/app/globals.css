@@ -47,6 +47,12 @@ body {
   max-height: 640px; */
 }
 
+.position-sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 /* .cta-h1{
   font-size: 100px;
 } */
